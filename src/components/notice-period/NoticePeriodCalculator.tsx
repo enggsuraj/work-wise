@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
+import { CalendarIcon } from "lucide-react";
 
 export default function NoticePeriodCalculator() {
   const [startDate, setStartDate] = useState<string>("");
@@ -76,14 +77,19 @@ export default function NoticePeriodCalculator() {
         <Label className="block text-sm">Select Start Date</Label>
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>
-            <Input
-              readOnly
-              value={startDate}
-              placeholder="Select a date"
-              onClick={() => setCalendarOpen(true)}
-              className="cursor-pointer"
-              onKeyDown={handleKeyPress}
-            />
+            <div className="relative w-full mb-4">
+              <Input
+                readOnly
+                value={startDate}
+                placeholder="Select a date"
+                onClick={() => setCalendarOpen(true)}
+                className="cursor-pointer"
+                onKeyDown={handleKeyPress}
+              />
+              <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                <CalendarIcon className="w-5 h-5 text-gray-500" />
+              </span>
+            </div>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0">
             <Calendar

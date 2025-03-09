@@ -12,19 +12,25 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 export default function NoticePeriodCalculator() {
   const [startDate, setStartDate] = useState<string>("");
-  const [noticeDays, setNoticeDays] = useState<any>("");
+  const [noticeDays, setNoticeDays] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
   const [weekDay, setWeekDay] = useState<string>("");
   const [nextMonday, setNextMonday] = useState<string>("");
-  const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   const calculateEndDate = () => {
-    if (!startDate || !noticeDays || isNaN(noticeDays)) return;
+    if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
     const start = new Date(startDate);
-
     start.setDate(start.getDate() + parseInt(noticeDays));
     const day = start.getDate();
     const suffix =
@@ -39,7 +45,6 @@ export default function NoticePeriodCalculator() {
       "en-GB",
       { month: "short", year: "numeric" }
     )}`;
-
     setEndDate(formattedDate);
     setWeekDay(start.toLocaleDateString("en-US", { weekday: "long" }));
     const daysUntilMonday = (8 - start.getDay()) % 7 || 7;
@@ -54,12 +59,6 @@ export default function NoticePeriodCalculator() {
     );
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      calculateEndDate();
-    }
-  };
-
   const resetCalculator = () => {
     setStartDate("");
     setNoticeDays("");
@@ -68,13 +67,22 @@ export default function NoticePeriodCalculator() {
     setNextMonday("");
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      calculateEndDate();
+    }
+  };
+
+  const daysOptions = Array.from({ length: 200 }, (_, i) => i + 1);
+
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100">
+    <main className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <Card className="p-8 rounded-2xl shadow-lg max-w-md w-full">
         <h1 className="text-sm font-bold text-center mb-4">
           NOTICE PERIOD CALCULATOR
         </h1>
-        <Label className="block text-sm">Select Start Date</Label>
+
+        <Label className="block text-sm font-medium mb-2">Start Date</Label>
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>
             <div className="relative w-full mb-4">
@@ -83,7 +91,7 @@ export default function NoticePeriodCalculator() {
                 value={startDate}
                 placeholder="Select a date"
                 onClick={() => setCalendarOpen(true)}
-                className="cursor-pointer"
+                className="cursor-pointer pr-10"
                 onKeyDown={handleKeyPress}
               />
               <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
@@ -108,22 +116,36 @@ export default function NoticePeriodCalculator() {
           </PopoverContent>
         </Popover>
 
-        <Label className="block text-sm font-medium mt-4">
+        <Label className="block text-sm font-medium mb-2">
           Notice Period (days)
         </Label>
-        <Input
-          type="number"
-          value={noticeDays}
-          onChange={(e) => setNoticeDays(e.target.value)}
-          onKeyDown={handleKeyPress}
-        />
+        <Select onValueChange={setNoticeDays} value={noticeDays}>
+          <SelectTrigger className="w-full p-2 border rounded-md">
+            <SelectValue placeholder="Select or enter days" />
+          </SelectTrigger>
+          <SelectContent>
+            {daysOptions.map((day) => (
+              <SelectItem key={day} value={day.toString()}>
+                {day}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
-        <Button
-          onClick={calculateEndDate}
-          className="bg-green-600 hover:bg-green-700 cursor-pointer mt-4"
-        >
-          Calculate End Date
-        </Button>
+        <div className="w-full flex gap-2 mt-4">
+          <Button
+            onClick={calculateEndDate}
+            className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
+          >
+            Calculate End Date
+          </Button>
+          <Button
+            onClick={resetCalculator}
+            className="bg-white hover:bg-white cursor-pointer text-black border border-gray-300"
+          >
+            Reset
+          </Button>
+        </div>
 
         {(endDate || weekDay || nextMonday) && (
           <CardContent className="text-center text-lg mt-4">
@@ -133,16 +155,10 @@ export default function NoticePeriodCalculator() {
             <Label className="block font-bold text-xl text-green-700">
               {endDate} on {weekDay}
             </Label>
-            <Label className="block text-sm mt-2">
+            <Label className="block text-sm mt-4">
               Upcoming Monday:{" "}
               <span className="font-semibold">{nextMonday}</span>
             </Label>
-            <Button
-              onClick={resetCalculator}
-              className="bg-white hover:bg-white cursor-pointer text-black border border-gray-100 mt-6"
-            >
-              Reset
-            </Button>
           </CardContent>
         )}
       </Card>

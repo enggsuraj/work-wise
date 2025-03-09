@@ -59,6 +59,14 @@ export default function NoticePeriodCalculator() {
     }
   };
 
+  const resetCalculator = () => {
+    setStartDate("");
+    setNoticeDays("");
+    setEndDate("");
+    setWeekDay("");
+    setNextMonday("");
+  };
+
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100">
       <Card className="p-8 rounded-2xl shadow-lg max-w-md w-full">
@@ -82,7 +90,12 @@ export default function NoticePeriodCalculator() {
               mode="single"
               selected={startDate ? new Date(startDate) : undefined}
               onSelect={(date) => {
-                setStartDate(date?.toISOString().split("T")[0] || "");
+                if (date) {
+                  const localDate = new Date(
+                    date.getTime() - date.getTimezoneOffset() * 60000
+                  );
+                  setStartDate(localDate.toISOString().split("T")[0]);
+                }
                 setCalendarOpen(false);
               }}
             />
@@ -101,9 +114,7 @@ export default function NoticePeriodCalculator() {
 
         <Button
           onClick={calculateEndDate}
-          onKeyDown={handleKeyPress}
-          type="button"
-          className="w-full bg-green-600 hover:bg-green-700 mt-4 cursor-pointer"
+          className="bg-green-600 hover:bg-green-700 cursor-pointer mt-4"
         >
           Calculate End Date
         </Button>
@@ -120,6 +131,12 @@ export default function NoticePeriodCalculator() {
               Upcoming Monday:{" "}
               <span className="font-semibold">{nextMonday}</span>
             </Label>
+            <Button
+              onClick={resetCalculator}
+              className="bg-white hover:bg-white cursor-pointer text-black border border-gray-100 mt-6"
+            >
+              Reset
+            </Button>
           </CardContent>
         )}
       </Card>

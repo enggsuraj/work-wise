@@ -137,7 +137,7 @@ export default function NoticePeriodCalculator() {
             onClick={calculateEndDate}
             className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
           >
-            Calculate End Date
+            Calculate Last Working Date
           </Button>
           <Button
             onClick={resetCalculator}

@@ -1,4 +1,4 @@
-import NoticePeriodCalculator from '@/components/notice-period/NoticePeriodCalculator'
+import NoticePeriodCalculator from '@/components/calculator/NoticePeriod'
 
 const page = () => {
   return (

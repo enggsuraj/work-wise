@@ -1,6 +1,8 @@
+import WorkExperience from '@/components/calculator/WorkExperience'
+
 const page = () => {
   return (
-    <div>page</div>
+   <WorkExperience />
   )
 }
 

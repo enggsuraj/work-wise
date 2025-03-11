@@ -1,6 +1,8 @@
+import HikePercentage from '@/components/calculator/HikePercentage'
+
 const page = () => {
   return (
-    <div>page</div>
+   <HikePercentage />
   )
 }
 

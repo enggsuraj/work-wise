@@ -1,7 +1,9 @@
+import { Label } from "@/components/ui/label";
+
 const Header = () => {
   return (
-    <header className="bg-black text-white p-2">
-      <h1 className="text-sm font-bold">WorkWise</h1>
+    <header className="bg-gray-900 text-white p-3">
+      <Label className="block text-sm font-medium">WorkWise</Label>
     </header>
   );
 };

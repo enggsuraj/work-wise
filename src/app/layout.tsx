@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from '@/layout/Header';
-import Footer from '@/layout/Footer';
+import Header from "@/layout/Header";
+import Footer from "@/layout/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "WorkWise",
-  description: "Highlights notice period, last working day, salary hike, and experience calculators.",
+  description:
+    "Highlights notice period, last working day, salary hike, and experience calculators.",
 };
 
 export default function RootLayout({
@@ -25,11 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      > <Header />
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full flex flex-col`}
+      >
+        <Header />
+        <main className="flex-grow flex justify-center items-center bg-gray-100 p-6">
+          {children}
+        </main>{" "}
         <Footer />
       </body>
     </html>

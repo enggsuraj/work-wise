@@ -74,7 +74,12 @@ export default function HikePercentageCalculator() {
         <div className="w-full flex gap-2 mt-4">
           <Button
             onClick={calculatePercentage}
-            className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
+            className={`flex-1 text-white ${
+              currentSalary && hikedSalary
+                ? "bg-green-600 hover:bg-green-700 cursor-pointer"
+                : "bg-gray-400"
+            }`}
+            disabled={!currentSalary || !hikedSalary}
           >
             Calculate Hike %
           </Button>

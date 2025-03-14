@@ -1,13 +1,20 @@
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/icons/logo.png"; // Ensure the path is correct
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-3 flex justify-between items-center">
-      <Label className="block text-sm font-medium">
-        <Link href="/" rel="noopener noreferrer">
-          WorkWise
+      <Label className="text-sm font-medium flex justify-start">
+        <Link
+          href="/"
+          rel="noopener noreferrer "
+          className="flex justify-start"
+        >
+          <Image src={logo} alt="WorkWise Logo" width={20} height={15} />
+          <Label className="ml-2">WorkWise</Label>
         </Link>
         <span className="italic text-sm font-light font-[cursive]">
           {" "}

@@ -73,7 +73,7 @@ export default function NoticePeriodCalculator() {
     }
   };
 
-  const daysOptions = Array.from({ length: 200 }, (_, i) => i + 1);
+  const daysOptions = Array.from({ length: 100 }, (_, i) => 100 - i);
 
   return (
     <main className="flex items-center justify-center p-6">

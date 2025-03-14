@@ -5,7 +5,11 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-3 flex justify-between items-center">
-      <Label className="block text-sm font-medium">WorkWise</Label>
+      <Label className="block text-sm font-medium">
+        <Link href="/" rel="noopener noreferrer">
+          WorkWise
+        </Link>
+      </Label>
       <div className="flex gap-4">
         <Link
           href="https://www.linkedin.com/in/enggsuraj"

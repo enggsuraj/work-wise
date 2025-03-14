@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
 
@@ -21,7 +21,7 @@ export default function NavigationButtons() {
   };
 
   return (
-    <div className="flex justify-center text-center p-6 gap-4 flex-wrap">
+    <div className="grid grid-cols-2 gap-4 md:p-6 md:flex md:justify-center md:gap-4 md:flex-wrap">
       {routes.map((route) => (
         <button
           key={route.path}

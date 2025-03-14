@@ -9,6 +9,10 @@ const Header = () => {
         <Link href="/" rel="noopener noreferrer">
           WorkWise
         </Link>
+        <span className="italic text-sm font-light font-[cursive]">
+          {" "}
+          - empowering careers with smarter tools
+        </span>
       </Label>
       <div className="flex gap-4">
         <Link

@@ -1,9 +1,9 @@
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white p-2 mt-auto">
-      <p className="text-center text-sm">© 2025 WorkWise. All rights reserved.</p>
+    <footer className="bg-gray-900 text-white p-3 mt-auto flex justify-center items-center">
+      <p className="text-[8pt]">
+        © 2025 WorkWise. Built with 🖤 and ☕️ by blogtheorem.
+      </p>
     </footer>
   );
-};
-
-export default Footer;
+}

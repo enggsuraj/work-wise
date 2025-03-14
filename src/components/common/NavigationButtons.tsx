@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
 
@@ -12,16 +13,24 @@ const routes = [
 
 export default function NavigationButtons() {
   const router = useRouter();
+  const [activePath, setActivePath] = useState<string>("");
+
+  const handleButtonClick = (path: string) => {
+    setActivePath(path); // Highlight the clicked button
+    router.push(path); // Navigate to the path
+  };
 
   return (
-    <div className="flex justify-center text-center p-6 gap-4">
-      {routes?.map((route) => (
+    <div className="flex justify-center text-center p-6 gap-4 flex-wrap">
+      {routes.map((route) => (
         <button
           key={route.path}
-          onClick={() => router.push(route.path)}
-          className="px-4 py-2 border border-black bg-white text-black text-sm rounded-sm cursor-pointer transition"
+          onClick={() => handleButtonClick(route.path)}
+          className={`px-4 py-2 border border-black text-black text-sm rounded-sm cursor-pointer transition ${
+            activePath === route.path ? "bg-black text-white" : "bg-white"
+          }`}
         >
-          <Label className="cursor-pointer transition">{route.label}</Label>
+          <Label className="cursor-pointer">{route.label}</Label>
         </button>
       ))}
     </div>

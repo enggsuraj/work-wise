@@ -1,9 +1,7 @@
-import SalaryHikeCalculator from '@/components/calculator/SalaryHike'
+import SalaryHikeCalculator from "@/components/calculator/SalaryHike";
 
 const page = () => {
-  return (
-   <SalaryHikeCalculator />
-  )
-}
+  return <SalaryHikeCalculator />;
+};
 
-export default page
+export default page;

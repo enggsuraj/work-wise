@@ -39,9 +39,9 @@ export default function WorkExperienceCalculator() {
     }
 
     const result = [];
-    if (years > 0) result.push(`${years} year${years > 1 ? 's' : ''}`);
-    if (months > 0) result.push(`${months} month${months > 1 ? 's' : ''}`);
-    if (days > 0) result.push(`${days} day${days > 1 ? 's' : ''}`);
+    if (years > 0) result.push(`${years} year${years > 1 ? "s" : ""}`);
+    if (months > 0) result.push(`${months} month${months > 1 ? "s" : ""}`);
+    if (days > 0) result.push(`${days} day${days > 1 ? "s" : ""}`);
 
     setExperience(result.join(", "));
   };
@@ -59,7 +59,9 @@ export default function WorkExperienceCalculator() {
           WORK EXPERIENCE CALCULATOR
         </h1>
 
-        <Label className="block text-sm font-medium mb-2 text-gray-700">Start Date</Label>
+        <Label className="block text-sm font-medium mb-2 text-gray-700">
+          Start Date
+        </Label>
         <Popover open={startCalendarOpen} onOpenChange={setStartCalendarOpen}>
           <PopoverTrigger asChild>
             <div className="relative w-full mb-4">
@@ -93,7 +95,9 @@ export default function WorkExperienceCalculator() {
           </PopoverContent>
         </Popover>
 
-        <Label className="block text-sm font-medium mb-2 text-gray-700">End Date</Label>
+        <Label className="block text-sm font-medium mb-2 text-gray-700">
+          End Date
+        </Label>
         <Popover open={endCalendarOpen} onOpenChange={setEndCalendarOpen}>
           <PopoverTrigger asChild>
             <div className="relative w-full mb-4">
@@ -104,7 +108,9 @@ export default function WorkExperienceCalculator() {
                 onClick={() => {
                   if (startDate) setEndCalendarOpen(true);
                 }}
-                className={`cursor-pointer pr-10 border border-gray-300 ${!startDate ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`cursor-pointer pr-10 border border-gray-300 ${
+                  !startDate ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               />
               <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
                 <CalendarIcon className="w-5 h-5 text-gray-500" />
@@ -133,7 +139,11 @@ export default function WorkExperienceCalculator() {
           <Button
             onClick={calculateExperience}
             disabled={!startDate || !endDate}
-            className={`flex-1 text-white ${startDate && endDate ? "bg-green-600 hover:bg-green-700" : "bg-gray-400"}`}
+            className={`flex-1 text-white ${
+              startDate && endDate
+                ? "bg-green-600 hover:bg-green-700"
+                : "bg-gray-400"
+            }`}
           >
             Calculate Experience
           </Button>

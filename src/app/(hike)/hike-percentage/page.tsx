@@ -1,9 +1,7 @@
-import HikePercentage from '@/components/calculator/HikePercentage'
+import HikePercentage from "@/components/calculator/HikePercentage";
 
 const page = () => {
-  return (
-   <HikePercentage />
-  )
-}
+  return <HikePercentage />;
+};
 
-export default page
+export default page;

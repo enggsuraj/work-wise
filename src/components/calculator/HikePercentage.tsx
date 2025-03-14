@@ -7,10 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 const formatNumberWithCommas = (number: number): string => {
-  return number.toLocaleString('en-IN');
+  return number.toLocaleString("en-IN");
 };
 
-const calculateHikePercentage = (currentSalary: number, hikedSalary: number): number => {
+const calculateHikePercentage = (
+  currentSalary: number,
+  hikedSalary: number
+): number => {
   if (currentSalary === 0) return 0;
   return ((hikedSalary - currentSalary) / currentSalary) * 100;
 };
@@ -34,17 +37,21 @@ export default function HikePercentageCalculator() {
     setHikePercentage("");
   };
 
-  const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/,/g, "");
-    if (!isNaN(Number(value))) {
-      setter(value);
-    }
-  };
+  const handleInputChange =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value.replace(/,/g, "");
+      if (!isNaN(Number(value))) {
+        setter(value);
+      }
+    };
 
   return (
     <main className="flex items-center justify-center bg-gray-100 p-6">
       <Card className="p-8 rounded-2xl shadow-lg max-w-md w-full">
-        <h1 className="text-sm font-bold text-center mb-4">HIKE PERCENTAGE CALCULATOR</h1>
+        <h1 className="text-sm font-bold text-center mb-4">
+          HIKE PERCENTAGE CALCULATOR
+        </h1>
 
         <Label className="block text-sm font-medium mb-2">Current Salary</Label>
         <Input
@@ -81,7 +88,9 @@ export default function HikePercentageCalculator() {
 
         {hikePercentage && (
           <CardContent className="text-center text-lg mt-4">
-            <Label className="block text-sm font-medium mb-2">Your hike percentage is</Label>
+            <Label className="block text-sm font-medium mb-2">
+              Your hike percentage is
+            </Label>
             <Label className="block font-bold text-xl text-green-700">
               {hikePercentage} %
             </Label>

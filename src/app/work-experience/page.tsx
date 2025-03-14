@@ -1,9 +1,7 @@
-import WorkExperience from '@/components/calculator/WorkExperience'
+import WorkExperience from "@/components/calculator/WorkExperience";
 
 const page = () => {
-  return (
-   <WorkExperience />
-  )
-}
+  return <WorkExperience />;
+};
 
-export default page
+export default page;

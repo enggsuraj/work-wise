@@ -1,9 +1,7 @@
-import NoticePeriodCalculator from '@/components/calculator/NoticePeriod'
+import NoticePeriodCalculator from "@/components/calculator/NoticePeriod";
 
 const page = () => {
-  return (
-   <NoticePeriodCalculator />
-  )
-}
+  return <NoticePeriodCalculator />;
+};
 
-export default page
+export default page;

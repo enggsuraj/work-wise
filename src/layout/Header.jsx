@@ -16,7 +16,7 @@ const Header = () => {
           <Image src={logo} alt="WorkWise Logo" width={20} height={15} />
           <Label className="ml-2">WorkWise</Label>
         </Link>
-        <span className="italic text-sm font-light font-[cursive]">
+        <span className="italic text-sm font-light font-[cursive] hidden md:inline">
           {" "}
           - empowering careers with smarter tools
         </span>

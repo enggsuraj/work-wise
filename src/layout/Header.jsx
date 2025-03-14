@@ -1,6 +1,6 @@
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -24,6 +24,13 @@ const Header = () => {
           rel="noopener noreferrer"
         >
           <FaGithub size={18} />
+        </Link>
+        <Link
+          href="https://instagram.com/blogtheorem"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram size={18} />
         </Link>
       </div>
     </header>

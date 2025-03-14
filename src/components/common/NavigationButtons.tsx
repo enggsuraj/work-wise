@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
 
@@ -13,11 +13,11 @@ const routes = [
 
 export default function NavigationButtons() {
   const router = useRouter();
-  const [activePath, setActivePath] = useState<string>("");
+  const [activePath, setActivePath] = useState<string>("/notice-period");
 
   const handleButtonClick = (path: string) => {
-    setActivePath(path); // Highlight the clicked button
-    router.push(path); // Navigate to the path
+    setActivePath(path);
+    router.push(path);
   };
 
   return (

@@ -7,22 +7,74 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 const formatNumberWithCommas = (number: number): string => {
-  return number.toLocaleString('en-IN');
+  return number.toLocaleString("en-IN");
 };
 
 const numberToWords = (num: number): string => {
-  const a = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-  const b = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+  const a = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+  ];
+  const b = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ];
 
   if (num === 0) return "zero";
 
   const convert = (n: number): string => {
     if (n < 20) return a[n];
-    if (n < 100) return b[Math.floor(n / 10)] + (n % 10 !== 0 ? " " + a[n % 10] : "");
-    if (n < 1000) return a[Math.floor(n / 100)] + " hundred" + (n % 100 !== 0 ? " and " + convert(n % 100) : "");
-    if (n < 100000) return convert(Math.floor(n / 1000)) + " thousand" + (n % 1000 !== 0 ? " " + convert(n % 1000) : "");
-    if (n < 10000000) return convert(Math.floor(n / 100000)) + " lakh" + (n % 100000 !== 0 ? " " + convert(n % 100000) : "");
-    return convert(Math.floor(n / 10000000)) + " crore" + (n % 10000000 !== 0 ? " " + convert(n % 10000000) : "");
+    if (n < 100)
+      return b[Math.floor(n / 10)] + (n % 10 !== 0 ? " " + a[n % 10] : "");
+    if (n < 1000)
+      return (
+        a[Math.floor(n / 100)] +
+        " hundred" +
+        (n % 100 !== 0 ? " and " + convert(n % 100) : "")
+      );
+    if (n < 100000)
+      return (
+        convert(Math.floor(n / 1000)) +
+        " thousand" +
+        (n % 1000 !== 0 ? " " + convert(n % 1000) : "")
+      );
+    if (n < 10000000)
+      return (
+        convert(Math.floor(n / 100000)) +
+        " lakh" +
+        (n % 100000 !== 0 ? " " + convert(n % 100000) : "")
+      );
+    return (
+      convert(Math.floor(n / 10000000)) +
+      " crore" +
+      (n % 10000000 !== 0 ? " " + convert(n % 10000000) : "")
+    );
   };
 
   return convert(num);
@@ -60,7 +112,9 @@ export default function SalaryHikeCalculator() {
   return (
     <main className="flex items-center justify-center bg-gray-100 p-6">
       <Card className="p-8 rounded-2xl shadow-lg max-w-md w-full">
-        <h1 className="text-sm font-bold text-center mb-4">SALARY HIKE CALCULATOR</h1>
+        <h1 className="text-sm font-bold text-center mb-4">
+          SALARY HIKE CALCULATOR
+        </h1>
 
         <Label className="block text-sm font-medium mb-2">Current Salary</Label>
         <Input
@@ -71,7 +125,9 @@ export default function SalaryHikeCalculator() {
           className="mb-4"
         />
 
-        <Label className="block text-sm font-medium mb-2">Increment Percentage</Label>
+        <Label className="block text-sm font-medium mb-2">
+          Increment Percentage (%)
+        </Label>
         <Input
           type="number"
           placeholder="Enter increment percentage"
@@ -97,13 +153,13 @@ export default function SalaryHikeCalculator() {
 
         {hikedSalary && (
           <CardContent className="text-center text-lg mt-4">
-            <Label className="block text-sm font-medium mb-2">Your hiked salary is</Label>
+            <Label className="block text-sm font-medium mb-2">
+              Your hiked salary is
+            </Label>
             <Label className="block font-bold text-xl text-green-700">
               ₹ {hikedSalary}
             </Label>
-            <Label className="block text-sm mt-4">
-              ({hikedSalaryInWords})
-            </Label>
+            <Label className="block text-sm mt-4">({hikedSalaryInWords})</Label>
           </CardContent>
         )}
       </Card>

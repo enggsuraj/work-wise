@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Label } from "@/components/ui/label";
 
 const routes = [
@@ -12,28 +13,24 @@ const routes = [
 ];
 
 export default function NavigationButtons() {
-  const router = useRouter();
-  const [activePath, setActivePath] = useState<string>("/notice-period");
-
-  const handleButtonClick = (path: string) => {
-    setActivePath(path);
-    router.push(path);
-  };
+  const pathname = usePathname();
+  const [activePath, setActivePath] = useState<string>(pathname);
 
   return (
     <div className="grid grid-cols-2 gap-4 md:p-6 md:flex md:justify-center md:gap-4 md:flex-wrap">
       {routes.map((route, index) => (
-        <button
-          key={index}
-          onClick={() => handleButtonClick(route.path)}
-          className={`px-4 py-2 border border-black text-black text-sm rounded-sm cursor-pointer transition ${
-            activePath === route.path ? "bg-black text-white" : "bg-white"
-          }`}
-        >
-          <Label className="cursor-pointer flex justify-center">
-            {route.label}
-          </Label>
-        </button>
+        <Link key={index} href={route.path} prefetch>
+          <button
+            onClick={() => setActivePath(route.path)}
+            className={`px-4 py-2 border border-black text-black text-sm rounded-sm cursor-pointer transition ${
+              activePath === route.path ? "bg-black text-white" : "bg-white"
+            }`}
+          >
+            <Label className="cursor-pointer flex justify-center">
+              {route.label}
+            </Label>
+          </button>
+        </Link>
       ))}
     </div>
   );

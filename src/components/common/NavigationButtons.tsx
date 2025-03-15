@@ -5,12 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Label } from "@/components/ui/label";
 
-const routes = [
-  { path: "/notice-period", label: "Notice Period" },
-  { path: "/salary-hike", label: "Salary Hike" },
-  { path: "/hike-percentage", label: "Hike Percentage" },
-  { path: "/work-experience", label: "Work Experience" },
-];
+import { routes } from "@/constants";
 
 export default function NavigationButtons() {
   const pathname = usePathname();

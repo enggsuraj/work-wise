@@ -33,6 +33,7 @@ export default function WorkExperienceCalculator() {
       months--;
       days += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
     }
+
     if (months < 0) {
       years--;
       months += 12;

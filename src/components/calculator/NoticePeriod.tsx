@@ -77,7 +77,7 @@ export default function NoticePeriodCalculator() {
 
   return (
     <main className="flex items-center justify-center p-6">
-      <Card className="p-8 rounded-2xl shadow-lg max-w-2xl w-full">
+      <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
         <h1 className="text-sm font-bold text-center mb-4">
           NOTICE PERIOD CALCULATOR
         </h1>

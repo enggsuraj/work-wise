@@ -54,7 +54,7 @@ export default function WorkExperienceCalculator() {
 
   return (
     <main className="flex items-center justify-center bg-gray-100 p-6">
-      <Card className="p-8 rounded-2xl shadow-lg max-w-md w-full">
+      <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
         <h1 className="text-sm font-bold text-center mb-4 text-gray-800">
           WORK EXPERIENCE CALCULATOR
         </h1>

@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <header className="bg-gray-900 text-white p-3 flex justify-between items-center">
+    <header className="bg-gray-900 text-white p-3 flex justify-between items-center w-full">
       <Label className="text-sm font-medium flex justify-start">
         <Link
           href="/"

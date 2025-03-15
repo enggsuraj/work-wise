@@ -29,6 +29,8 @@ export default function NoticePeriodCalculator() {
   const [endDate, setEndDate] = useState<string>("");
   const [weekDay, setWeekDay] = useState<string>("");
   const [nextMonday, setNextMonday] = useState<string>("");
+  const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
+
   const [calendarOpen, setCalendarOpen] = useState(false);
 
   const calculateEndDate = () => {
@@ -60,6 +62,9 @@ export default function NoticePeriodCalculator() {
         day: "numeric",
       })
     );
+
+    const googleFormatted = start.toISOString().split("T")[0].replace(/-/g, "");
+    setGoogleCalendarDate(googleFormatted);
   };
 
   const resetCalculator = () => {
@@ -176,6 +181,19 @@ export default function NoticePeriodCalculator() {
               Upcoming Monday:{" "}
               <span className="font-semibold">{nextMonday}</span>
             </Label>
+            {googleCalendarDate && (
+              <div className="flex justify-center mt-4">
+                <a
+                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Last+Working+Day&dates=${googleCalendarDate}/${googleCalendarDate}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-gray-50 text-black text-xs hover:bg-gray-100 cursor-pointer">
+                    Add to Google Calendar
+                  </Button>
+                </a>
+              </div>
+            )}
           </CardContent>
         )}
       </Card>

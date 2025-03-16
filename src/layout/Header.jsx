@@ -21,7 +21,7 @@ const Header = () => {
           - empowering careers with smarter tools
         </span>
       </Label>
-      <div className="flex gap-4">
+      <div className="flex gap-4 items-center">
         <Link
           href="https://www.linkedin.com/in/enggsuraj"
           target="_blank"
@@ -30,18 +30,26 @@ const Header = () => {
           <FaLinkedin size={18} />
         </Link>
         <Link
+          href="https://instagram.com/blogtheorem"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram size={18} />
+        </Link>
+        <Link
           href="https://github.com/enggsuraj/work-wise"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaGithub size={18} />
         </Link>
+
         <Link
-          href="https://instagram.com/blogtheorem"
+          href="https://github.com/enggsuraj/work-wise/issues"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaInstagram size={18} />
+          <Label className="text-sm cursor-pointer">Report an Issue</Label>
         </Link>
       </div>
     </header>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Label } from "@/components/ui/label";
@@ -9,7 +9,13 @@ import { routes } from "@/constants";
 
 export default function NavigationButtons() {
   const pathname = usePathname();
-  const [activePath, setActivePath] = useState<string>(pathname);
+  const [activePath, setActivePath] = useState<string>("");
+
+  useEffect(() => {
+    setActivePath(pathname);
+  }, [pathname]);
+
+  if (pathname === "/login") return null;
 
   return (
     <div className="grid grid-cols-2 gap-4 md:p-6 md:flex md:justify-center md:gap-4 md:flex-wrap">

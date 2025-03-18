@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
+import Image from "next/image";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+
+import logo from "@/icons/workwise.png";
 
 export default function LoginPage() {
   const handleLogin = async () => {
@@ -15,12 +20,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className=" bg-gray-100">
+    <div className="h-full flex flex-col justify-center items-center bg-gray-100 px-4">
       <Card className="w-full max-w-md shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl font-bold">
-            Sign in to WorkWise
-          </CardTitle>
+        <div className="flex flex-col items-center text-center">
+          <div className="w-16 h-16 flex items-center justify-center mb-4">
+            <Image src={logo} alt="WorkWise Logo" width={60} height={60} />
+          </div>
+        </div>
+        <CardHeader className="text-center">
+          <h1 className="text-3xl font-bold text-gray-900">WorkWise</h1>
+          <p className="text-gray-600 text-sm">
+            Empowering careers with smarter tools
+          </p>
         </CardHeader>
         <CardContent>
           <Button
@@ -30,6 +41,12 @@ export default function LoginPage() {
           >
             <FcGoogle className="text-xl" /> Sign in with Google
           </Button>
+
+          <p className="text-center text-gray-600 text-sm mt-4">
+            Sign in to unlock exclusive features, including adding reminder
+            dates to Google Calendar, accessing social media links, exploring
+            the code repository, and much more.
+          </p>
         </CardContent>
       </Card>
     </div>

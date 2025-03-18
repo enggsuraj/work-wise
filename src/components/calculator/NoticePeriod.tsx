@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { CalendarIcon } from "lucide-react";
 
@@ -24,6 +25,8 @@ import {
 import { daysArr } from "@/constants";
 
 export default function NoticePeriodCalculator() {
+  const { data: session, status } = useSession();
+
   const [startDate, setStartDate] = useState<string>("");
   const [noticeDays, setNoticeDays] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
@@ -181,7 +184,7 @@ export default function NoticePeriodCalculator() {
               Upcoming Monday:{" "}
               <span className="font-semibold">{nextMonday}</span>
             </Label>
-            {googleCalendarDate && (
+            {status === "authenticated" && googleCalendarDate && (
               <div className="flex justify-center mt-4">
                 <a
                   href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Last+Working+Day&dates=${googleCalendarDate}/${googleCalendarDate}`}
@@ -190,7 +193,7 @@ export default function NoticePeriodCalculator() {
                 >
                   <Button className="bg-gray-50 text-black text-xs hover:bg-gray-100 cursor-pointer">
                     Add to Google Calendar
-                  </Button>     
+                  </Button>
                 </a>
               </div>
             )}

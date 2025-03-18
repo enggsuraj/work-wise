@@ -191,6 +191,7 @@ export default function NoticePeriodCalculator() {
                   <Button className="bg-gray-50 text-black text-xs hover:bg-gray-100 cursor-pointer">
                     Add to Google Calendar
                   </Button>
+                  
                 </a>
               </div>
             )}

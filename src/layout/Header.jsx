@@ -51,6 +51,13 @@ const Header = () => {
         >
           <Label className="text-sm cursor-pointer">Report an Issue</Label>
         </Link>
+
+        <Link
+          href="/login"
+          rel="noopener noreferrer"
+        >
+          <Label className="text-sm cursor-pointer">Login</Label>
+        </Link>
       </div>
     </header>
   );

@@ -6,22 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-const formatNumberWithCommas = (number: number): string => {
-  return number.toLocaleString("en-IN");
-};
-
-const calculateHikePercentage = (
-  currentSalary: number,
-  hikedSalary: number
-): number => {
-  if (currentSalary === 0) return 0;
-  return ((hikedSalary - currentSalary) / currentSalary) * 100;
-};
-
 export default function HikePercentageCalculator() {
   const [currentSalary, setCurrentSalary] = useState<string>("");
   const [hikedSalary, setHikedSalary] = useState<string>("");
   const [hikePercentage, setHikePercentage] = useState<string>("");
+
+  const formatNumberWithCommas = (number: number): string => {
+    return number.toLocaleString("en-IN");
+  };
 
   const calculatePercentage = () => {
     const salary = parseFloat(currentSalary.replace(/,/g, ""));

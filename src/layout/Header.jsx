@@ -12,6 +12,28 @@ import logo from "@/icons/logo.png";
 const Header = () => {
   const { data: session, status } = useSession();
 
+  const socialLinks = [
+    {
+      href: "https://www.linkedin.com/in/enggsuraj",
+      icon: <FaLinkedin size={18} />,
+    },
+    {
+      href: "https://instagram.com/blogtheorem",
+      icon: <FaInstagram size={18} />,
+    },
+    {
+      href: "https://github.com/enggsuraj/work-wise",
+      icon: <FaGithub size={18} />,
+    },
+  ];
+
+  const extraLinks = [
+    {
+      href: "https://github.com/enggsuraj/work-wise/issues",
+      label: "Report an Issue",
+    },
+  ];
+
   return (
     <header className="bg-gray-900 text-white p-3 flex justify-between items-center w-full">
       <Label className="text-sm font-medium flex justify-start">
@@ -33,36 +55,27 @@ const Header = () => {
         )}
         {status === "authenticated" && (
           <>
-            <Link
-              href="https://www.linkedin.com/in/enggsuraj"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin size={18} />
-            </Link>
-            <Link
-              href="https://instagram.com/blogtheorem"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram size={18} />
-            </Link>
+            {socialLinks.map(({ href, icon }, index) => (
+              <Link
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {icon}
+              </Link>
+            ))}
 
-            <Link
-              href="https://github.com/enggsuraj/work-wise"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size={18} />
-            </Link>
-
-            <Link
-              href="https://github.com/enggsuraj/work-wise/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Label className="text-sm cursor-pointer">Report an Issue</Label>
-            </Link>
+            {extraLinks.map(({ href, label }, index) => (
+              <Link
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Label className="text-sm cursor-pointer">{label}</Label>
+              </Link>
+            ))}
           </>
         )}
 

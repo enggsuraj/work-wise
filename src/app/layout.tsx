@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
 import NavigationButtons from "@/components/common/NavigationButtons";
-import SessionProviderWrapper from "@/components/common/SessionProviderWrapper"; // Import the wrapper
+import SessionProviderWrapper from "@/components/common/SessionProviderWrapper"; 
 
 import "./globals.css";
 

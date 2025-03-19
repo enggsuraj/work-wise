@@ -1,16 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 import logo from "@/icons/workwise.png";
 
 export default function LoginPage() {
+  
   const handleLogin = async () => {
     try {
       await signIn("google", { callbackUrl: "/notice-period" });

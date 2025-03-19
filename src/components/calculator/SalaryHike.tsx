@@ -33,6 +33,7 @@ const numberToWords = (num: number): string => {
     "eighteen",
     "nineteen",
   ];
+
   const b = [
     "",
     "",

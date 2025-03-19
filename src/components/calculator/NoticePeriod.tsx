@@ -34,7 +34,7 @@ export default function NoticePeriodCalculator() {
   const [nextMonday, setNextMonday] = useState<string>("");
   const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
 
-  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
 
   const calculateEndDate = () => {
     if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
@@ -142,7 +142,7 @@ export default function NoticePeriodCalculator() {
         </Select>
         <div className="flex justify-between">
           <div className="flex gap-2 mt-2">
-            {daysArr.map((day: number) => (
+            {daysArr?.map((day: number) => (
               <Button
                 key={day}
                 className="bg-green-100 text-green-800 text-[10px] rounded-[2px] w-[50px] h-[20px] hover:bg-green-300 transition-all cursor-pointer"

@@ -18,6 +18,7 @@ import logo from "@/icons/logo.png";
 
 const Header = () => {
   const { data: session, status } = useSession();
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const socialLinks = [

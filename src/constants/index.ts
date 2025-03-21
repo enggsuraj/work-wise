@@ -5,6 +5,7 @@ export const routes = [
   { path: "/salary-hike", label: "Salary Hike" },
   { path: "/hike-percentage", label: "Hike Percentage" },
   { path: "/work-experience", label: "Work Experience" },
+  { path: "/lwd-checklist", label: "LWD Checklist" },
 ];
 
 export const SEO_KEYWORDS = [
@@ -114,3 +115,33 @@ export const SEO_KEYWORDS = [
   "HR payroll forecasting",
   "career decision support tool",
 ];
+
+export const LWD_CHECKLIST = {
+  "Before Resigning": [
+    "If leaving to go to another company, make sure you have the offer letter in hand.",
+    "Print and save important documents like PF UAN, Form 16, tax-related files, and at least 3 months pay slips for future reference.",
+    "File any expenses, claims, and reports.",
+    "Write a short transition document on projects/accounts you are working on.",
+    "Gradually start taking home personal items that are in the office.",
+    "Draft your resignation mail/letter in advance.",
+  ],
+  "Day of Resigning / Serving Notice Period": [
+    "Schedule 1-to-1 time with your boss/HR.",
+    "Know your notice period and send your resignation mail/letter appropriately.",
+    "Agree on your last working day with your boss and HR.",
+    "Hand over all your pending tasks or KT to respective collegues.",
+    "Continue delivering quality work to leave a lasting positive impression.",
+    "Wipe personal information from the laptop and keep backup of you files",
+    "Complete your exit interview with your superiors and/or the HR department",
+    "Create a list of people you want to talk to in- before leaving.",
+    "Collect collegues contacts and network with you collegues for future references",
+    "Submit company possessions such as locker keys, ID card, laptop, etc., on your last day.",
+    "Send farewell emails.",
+  ],
+  "After Resigning": [
+    "Address important administrative tasks. Ex: Medical Insurance",
+    "Follow up with HR for documentation and follow up on outstanding pay and expenses.",
+    "Ask for a letter of recommendation from your manager",
+    "Update LinkedIn and other social media profiles.",
+  ],
+};

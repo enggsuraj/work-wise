@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://workwisetool.vercel.app/sitemap.xml

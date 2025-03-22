@@ -22,8 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "WorkWise - Career Calculators for Notice Period, Salary Hike & Experience",
+  title: "WorkWise - Empowering careers with smarter tools",
   description:
     "WorkWise provides essential career calculators for notice period, last working day estimation, salary hike projections, and work experience tracking.",
   keywords: SEO_KEYWORDS,
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     images: ["https://workwise.app/workwisepage.png"],
   },
   alternates: {
-    canonical: "https://workwise.vercel.app",
+    canonical: "https://workwise.vercel.app/notice-period",
   },
 };
 
@@ -75,19 +74,19 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "WorkWise",
-              url: "https://workwise.vercel.app",
+              url: "https://workwise.vercel.app/notice-period",
               description:
                 "WorkWise provides essential career calculators for notice period, last working day estimation, salary hike projections, and work experience tracking.",
               keywords: SEO_KEYWORDS,
               author: {
                 "@type": "Person",
                 name: "blogtheorem",
-                url: "https://workwise.vercel.app",
+                url: "https://workwise.vercel.app/notice-period",
               },
               publisher: {
                 "@type": "Organization",
                 name: "WorkWise",
-                url: "https://workwise.vercel.app",
+                url: "https://workwise.vercel.app/notice-period",
                 logo: {
                   "@type": "ImageObject",
                   url: "https://workwise.app/workwisetheme.png",
@@ -102,10 +101,7 @@ export default function RootLayout({
                 height: 630,
                 caption: "WorkWise Career Calculator",
               },
-              sameAs: [
-                "https://twitter.com/blogtheorem",
-                "https://www.linkedin.com/company/workwise",
-              ],
+              sameAs: ["https://twitter.com/blogtheorem"],
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://workwise.vercel.app/search?q={query}",

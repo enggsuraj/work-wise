@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/:path*/",
-        destination: "/:path*",
-        permanent: true,
-      },
-      {
         source: "/index.html",
         destination: "/notice-period",
         permanent: true,

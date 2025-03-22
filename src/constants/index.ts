@@ -7,6 +7,7 @@ export const routes = [
   { path: "/work-experience", label: "Work Experience" },
   { path: "/lwd-checklist", label: "LWD Checklist" },
   { path: "/gratuity", label: "Gratuity Calculator" },
+  { path: "/leave-encashment", label: "Leave Encashment" },
 ];
 
 export const SEO_KEYWORDS = [

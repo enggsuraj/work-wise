@@ -6,6 +6,7 @@ export const routes = [
   { path: "/hike-percentage", label: "Hike Percentage" },
   { path: "/work-experience", label: "Work Experience" },
   { path: "/lwd-checklist", label: "LWD Checklist" },
+  { path: "/gratuity", label: "Gratuity Calculator" },
 ];
 
 export const SEO_KEYWORDS = [

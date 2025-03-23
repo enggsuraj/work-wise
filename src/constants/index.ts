@@ -10,6 +10,16 @@ export const routes = [
   { path: "/leave-encashment", label: "Leave Encashment" },
 ];
 
+export const frequentQuestions = [
+  "Can my notice period be reduced or waived?",
+  "What happens if I resign without serving the notice period?",
+  "Can I use my remaining leave balance during my notice period?",
+  "Will I receive my full salary and benefits during the notice period?",
+  "Can my employer extend my notice period?",
+  "What should I do if my employer is not accepting my resignation?",
+  "Can I join a new company during my notice period?",
+];
+
 export const SEO_KEYWORDS = [
   "WorkWise",
   "career calculator",

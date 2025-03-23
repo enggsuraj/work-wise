@@ -23,9 +23,10 @@ import {
 } from "@/components/ui/select";
 
 import { daysArr } from "@/constants";
+import AIModal from "../common/AIModal";
 
 export default function NoticePeriodCalculator() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   const [startDate, setStartDate] = useState<string>("");
   const [noticeDays, setNoticeDays] = useState<string>("");
@@ -33,8 +34,11 @@ export default function NoticePeriodCalculator() {
   const [weekDay, setWeekDay] = useState<string>("");
   const [nextMonday, setNextMonday] = useState<string>("");
   const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
+  const [userQuestion, setUserQuestion] = useState<string>("");
+  const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
 
   const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
+  const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
 
   const calculateEndDate = () => {
     if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
@@ -87,7 +91,7 @@ export default function NoticePeriodCalculator() {
   const daysOptions = Array.from({ length: 100 }, (_, i) => 100 - i);
 
   return (
-    <main className="flex items-center justify-center p-6">
+    <main className="p-6 pt-0">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
         <h1 className="text-sm font-bold text-center mb-4">
           NOTICE PERIOD CALCULATOR
@@ -191,7 +195,7 @@ export default function NoticePeriodCalculator() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="bg-gray-50 text-black text-xs hover:bg-gray-100 cursor-pointer">
+                  <Button className="bg-gray-100 text-black text-xs hover:bg-gray-200 cursor-pointer">
                     Add to Google Calendar
                   </Button>
                 </a>
@@ -200,6 +204,19 @@ export default function NoticePeriodCalculator() {
           </CardContent>
         )}
       </Card>
+
+      {status === "authenticated" && googleCalendarDate && (
+        <>
+          <AIModal
+            isAIModalOpen={isAIModalOpen}
+            setIsAIModalOpen={setIsAIModalOpen}
+            dropDownUserQuestion={dropDownUserQuestion}
+            setDropDownUserQuestion={setDropDownUserQuestion}
+            userQuestion={userQuestion}
+            setUserQuestion={setUserQuestion}
+          />
+        </>
+      )}
     </main>
   );
 }

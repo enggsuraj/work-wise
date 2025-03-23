@@ -69,6 +69,14 @@ const AIModal = (props: any) => {
   const clearQuestions = () => {
     setUserQuestion("");
     setDropDownUserQuestion("");
+    setAIInsight("");
+  };
+
+  const handleEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      fetchAIInsights(userQuestion ? userQuestion : dropDownUserQuestion);
+    }
   };
 
   useEffect(() => {
@@ -131,6 +139,7 @@ const AIModal = (props: any) => {
           placeholder="Enter your question for AI..."
           value={userQuestion}
           onChange={(e: any) => setUserQuestion(e.target.value)}
+          onKeyDown={handleEnterPress}
         />
 
         <div className="flex justify-end">
@@ -164,13 +173,13 @@ const AIModal = (props: any) => {
                       <strong className="text-gray-900">{children}</strong>
                     ),
                     ul: ({ children }) => (
-                      <ul className="list-disc list-inside text-gray-700">
+                      <ul className="list-disc list-outside pl-5 text-gray-700">
                         {children}
                       </ul>
                     ),
                     li: ({ children }) => <li className="mt-1">{children}</li>,
                     p: ({ children }) => (
-                      <p className="text-gray-800 leading-relaxed">
+                      <p className="text-gray-800 leading-relaxed mb-4">
                         {children}
                       </p>
                     ),

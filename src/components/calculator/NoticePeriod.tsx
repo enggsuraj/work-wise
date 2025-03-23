@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { CalendarIcon } from "lucide-react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -24,6 +25,10 @@ import {
 
 import { daysArr } from "@/constants";
 
+const genAI = new GoogleGenerativeAI(
+  process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
+);
+
 export default function NoticePeriodCalculator() {
   const { data: session, status } = useSession();
 
@@ -33,8 +38,31 @@ export default function NoticePeriodCalculator() {
   const [weekDay, setWeekDay] = useState<string>("");
   const [nextMonday, setNextMonday] = useState<string>("");
   const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
+  const [aiInsight, setAIInsight] = useState<string>("");
+  const [userQuestion, setUserQuestion] = useState<string>("");
 
   const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchAIInsights = async (question: string) => {
+    if (!session || !question) return;
+    setLoading(true);
+
+    try {
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+      const result = await model.generateContent(question);
+      const response = await result.response;
+      const text = response.text();
+      setAIInsight(text);
+    } catch (error) {
+      setAIInsight("Failed to generate AI insights.");
+      console.error("Gemini AI Error:", error);
+    }
+
+    setLoading(false);
+  };
+
 
   const calculateEndDate = () => {
     if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
@@ -87,7 +115,7 @@ export default function NoticePeriodCalculator() {
   const daysOptions = Array.from({ length: 100 }, (_, i) => 100 - i);
 
   return (
-    <main className="flex items-center justify-center p-6">
+    <main className="p-6">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
         <h1 className="text-sm font-bold text-center mb-4">
           NOTICE PERIOD CALCULATOR
@@ -200,6 +228,28 @@ export default function NoticePeriodCalculator() {
           </CardContent>
         )}
       </Card>
+      {status === "authenticated" && googleCalendarDate &&(
+        <>
+        <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg">
+          <h2 className="text-sm font-semibold">Ask AI</h2>
+          <Input
+            className="mt-2"
+            placeholder="Enter your question for AI..."
+            value={userQuestion}
+            onChange={(e) => setUserQuestion(e.target.value)}
+          />
+          <Button
+            className="mt-2 bg-blue-600 hover:bg-blue-700 text-white"
+            onClick={()=>fetchAIInsights(userQuestion)}
+            disabled={!userQuestion.trim()}
+          >
+            Get AI Insights
+          </Button>
+        </CardContent>
+           <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg"></CardContent>
+           </>
+
+      )}
     </main>
   );
 }

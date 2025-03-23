@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, BotIcon } from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -22,8 +22,17 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogOverlay,
+} from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 
-import { daysArr } from "@/constants";
+import { daysArr, frequentQuestions } from "@/constants";
 
 const genAI = new GoogleGenerativeAI(
   process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
@@ -40,9 +49,11 @@ export default function NoticePeriodCalculator() {
   const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
   const [aiInsight, setAIInsight] = useState<string>("");
   const [userQuestion, setUserQuestion] = useState<string>("");
+  const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
 
   const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
 
   const fetchAIInsights = async (question: string) => {
     if (!session || !question) return;
@@ -62,7 +73,6 @@ export default function NoticePeriodCalculator() {
 
     setLoading(false);
   };
-
 
   const calculateEndDate = () => {
     if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
@@ -219,7 +229,7 @@ export default function NoticePeriodCalculator() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="bg-gray-50 text-black text-xs hover:bg-gray-100 cursor-pointer">
+                  <Button className="bg-gray-100 text-black text-xs hover:bg-gray-200 cursor-pointer">
                     Add to Google Calendar
                   </Button>
                 </a>
@@ -228,27 +238,81 @@ export default function NoticePeriodCalculator() {
           </CardContent>
         )}
       </Card>
-      {status === "authenticated" && googleCalendarDate &&(
-        <>
-        <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg">
-          <h2 className="text-sm font-semibold">Ask AI</h2>
-          <Input
-            className="mt-2"
-            placeholder="Enter your question for AI..."
-            value={userQuestion}
-            onChange={(e) => setUserQuestion(e.target.value)}
-          />
-          <Button
-            className="mt-2 bg-blue-600 hover:bg-blue-700 text-white"
-            onClick={()=>fetchAIInsights(userQuestion)}
-            disabled={!userQuestion.trim()}
-          >
-            Get AI Insights
-          </Button>
-        </CardContent>
-           <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg"></CardContent>
-           </>
 
+      {status === "authenticated" && googleCalendarDate && (
+        <>
+          <Dialog open={isAIModalOpen} onOpenChange={setIsAIModalOpen}>
+            <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md transition-all duration-300" />
+
+            <DialogTrigger asChild>
+              <Button className="cursor-pointer w-full mt-4 flex items-center text-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 ease-in-out">
+                <BotIcon className="w-full h-5 text-white" /> Get AI Insights
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-3xl w-full mx-auto p-6 rounded-lg shadow-2xl">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-900">
+                  Ask AI Insights
+                </DialogTitle>
+              </DialogHeader>
+
+              <div className="">
+                <Label className="block text-sm font-medium text-gray-700">
+                  Ask Question or Select a most frequent question
+                </Label>
+                <Select
+                  value={dropDownUserQuestion || ""}
+                  onValueChange={(value) => setDropDownUserQuestion(value)}
+                >
+                  <SelectTrigger className="mt-2 w-full border rounded-md p-3 text-gray-700">
+                    <SelectValue placeholder="Choose a question" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border rounded-md shadow-lg">
+                    {frequentQuestions.map((question, index) => (
+                      <SelectItem
+                        key={index}
+                        value={question}
+                        className="p-2 cursor-pointer hover:bg-gray-100"
+                      >
+                        {question}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <Textarea
+                className="p-3 border rounded-md w-full resize-none h-24"
+                placeholder="Enter your question for AI..."
+                value={userQuestion}
+                onChange={(e: any) => setUserQuestion(e.target.value)}
+              />
+
+              <div className="flex justify-end">
+                <Button
+                  className="text-white bg-green-600 hover:bg-green-700 cursor-pointer w-15"
+                  onClick={() =>
+                    fetchAIInsights(
+                      userQuestion ? userQuestion : dropDownUserQuestion
+                    )
+                  }
+                >
+                  Send
+                </Button>
+              </div>
+
+              {loading ? (
+                <p className="mt-4 text-gray-600">Generating response...</p>
+              ) : (
+                aiInsight && (
+                  <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg break-words h-100 overflow-scroll">
+                    {aiInsight}
+                  </CardContent>
+                )
+              )}
+            </DialogContent>
+          </Dialog>
+        </>
       )}
     </main>
   );

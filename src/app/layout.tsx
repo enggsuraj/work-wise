@@ -117,7 +117,7 @@ export default function RootLayout({
         <SessionProviderWrapper>
           <Header />
           <main className="flex-grow justify-center items-center bg-gray-100 p-6">
-            <div className="flex flex-grow justify-center text-center p-6">
+            <div className="flex flex-grow justify-center text-center p-6 pt-0">
               <NavigationButtons />
             </div>
             <div className="flex-grow flex justify-center items-center">

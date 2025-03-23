@@ -12,15 +12,12 @@ export const routes = [
 
 export const frequentQuestions = [
   "Can my notice period be reduced or waived?",
-  "Do I need to serve the full notice period?",
   "What happens if I resign without serving the notice period?",
   "Can I use my remaining leave balance during my notice period?",
   "Will I receive my full salary and benefits during the notice period?",
   "Can my employer extend my notice period?",
   "What should I do if my employer is not accepting my resignation?",
-  "Will I get my full & final settlement immediately after my last working day?",
   "Can I join a new company during my notice period?",
-  "Can my employer force me to work during my notice period even if I have no tasks assigned?",
 ];
 
 export const SEO_KEYWORDS = [

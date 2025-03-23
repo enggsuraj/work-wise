@@ -91,7 +91,7 @@ export default function NoticePeriodCalculator() {
   const daysOptions = Array.from({ length: 100 }, (_, i) => 100 - i);
 
   return (
-    <main className="p-6">
+    <main className="p-6 pt-0">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
         <h1 className="text-sm font-bold text-center mb-4">
           NOTICE PERIOD CALCULATOR

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
@@ -122,6 +123,7 @@ export default function RootLayout({
             </div>
             <div className="flex-grow flex justify-center items-center">
               {children}
+              <Analytics />
             </div>
           </main>
           <Footer />

@@ -120,7 +120,7 @@ export default function GratuityCalculator() {
             }`}
             disabled={!salary || !years || !months}
           >
-            Calculate Gratuity
+            Calculate Gratuity Amount
           </Button>
           <Button
             onClick={resetCalculator}

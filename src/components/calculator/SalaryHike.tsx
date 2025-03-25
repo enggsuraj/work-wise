@@ -147,7 +147,7 @@ export default function SalaryHikeCalculator() {
             }`}
             disabled={!currentSalary || !incrementPercentage}
           >
-            Calculate Hiked Salary
+            Calculate your Hiked Salary
           </Button>
           <Button
             onClick={resetCalculator}

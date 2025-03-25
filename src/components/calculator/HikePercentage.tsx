@@ -73,7 +73,7 @@ export default function HikePercentageCalculator() {
             }`}
             disabled={!currentSalary || !hikedSalary}
           >
-            Calculate Hike %
+            Calculate Hike percentage
           </Button>
           <Button
             onClick={resetCalculator}

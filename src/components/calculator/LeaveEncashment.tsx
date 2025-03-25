@@ -82,7 +82,7 @@ export default function LeaveEncashmentCalculator() {
             }`}
             disabled={!basicSalary || !leaveDays}
           >
-            Calculate Encashment
+            Calculate Encashment Leave
           </Button>
           <Button
             onClick={resetCalculator}

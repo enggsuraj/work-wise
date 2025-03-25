@@ -146,7 +146,7 @@ export default function WorkExperienceCalculator() {
                 : "bg-gray-400"
             }`}
           >
-            Calculate Experience
+            Calculate Work Experience
           </Button>
           <Button
             onClick={resetCalculator}

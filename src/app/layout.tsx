@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
 import NavigationButtons from "@/components/common/NavigationButtons";
 import SessionProviderWrapper from "@/components/common/SessionProviderWrapper";
+import Sidebar from "@/layout/Sidebar";
 
 import { SEO_KEYWORDS } from "@/constants";
 
@@ -116,17 +117,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full flex flex-col w-full max-w-full overflow-x-hidden`}
       >
         <SessionProviderWrapper>
-          <Header />
-          <main className="flex-grow justify-center items-center bg-gray-100 p-6">
-            <div className="flex flex-grow justify-center text-center p-6 pt-0">
-              <NavigationButtons />
-            </div>
-            <div className="flex-grow flex justify-center items-center">
-              {children}
-              <Analytics />
-            </div>
-          </main>
-          <Footer />
+          {/* Sidebar placed here */}
+          <div className="flex flex-col flex-grow">
+            <Header />
+            <main className="flex-grow justify-center items-center bg-gray-100 p-6">
+              <Sidebar />
+              <div className="flex-grow flex justify-center items-center">
+                {children}
+                <Analytics />
+              </div>
+            </main>
+            <Footer />
+          </div>
         </SessionProviderWrapper>
       </body>
     </html>

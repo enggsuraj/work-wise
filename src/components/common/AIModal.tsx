@@ -83,6 +83,7 @@ const AIModal = (props: any) => {
     if (!isAIModalOpen) {
       setUserQuestion("");
       setDropDownUserQuestion("");
+      setAIInsight("");
     }
   }, [isAIModalOpen]);
 

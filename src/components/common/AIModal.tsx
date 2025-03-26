@@ -162,7 +162,17 @@ const AIModal = (props: any) => {
         </div>
 
         {loading ? (
-          <p className="mt-4 text-gray-600">Generating response...</p>
+          <div className="flex items-center justify-start">
+            <video
+              className="w-28 h-28 transform -translate-x-5"
+              src="https://cdn.dribbble.com/userupload/17608183/file/original-a9b30b0413131d806620dc5db95c99f1.mp4"
+              loop
+              preload="auto"
+              playsInline
+              muted
+              autoPlay
+            />
+          </div>
         ) : (
           aiInsight && (
             <CardContent className="mt-4 p-4 bg-gray-50 rounded-lg break-words h-100 overflow-scroll">

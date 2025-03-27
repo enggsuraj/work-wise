@@ -206,7 +206,7 @@ export default function NoticePeriodCalculator() {
         )}
       </Card>
 
-      {status === "authenticated" && (
+      {status === "authenticated" && googleCalendarDate && (
         <>
           <AIModal
             isAIModalOpen={isAIModalOpen}

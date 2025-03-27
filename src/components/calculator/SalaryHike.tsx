@@ -177,7 +177,7 @@ export default function SalaryHikeCalculator() {
           </CardContent>
         )}
       </Card>
-      {status === "authenticated" && (
+      {status === "authenticated" && hikedSalary && (
         <>
           <AIModal
             isAIModalOpen={isAIModalOpen}

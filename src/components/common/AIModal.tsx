@@ -29,8 +29,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-import { frequentQuestions } from "@/constants";
-
 const genAI = new GoogleGenerativeAI(
   process.env.NEXT_PUBLIC_GEMINI_API_KEY || ""
 );
@@ -45,6 +43,7 @@ const AIModal = (props: any) => {
     setDropDownUserQuestion,
     userQuestion,
     setUserQuestion,
+    frequentQuestions,
   } = props;
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -99,7 +98,7 @@ const AIModal = (props: any) => {
       <DialogTrigger asChild>
         <Button
           className="cursor-pointer w-full mt-4 flex items-center text-center justify-center gap-2 
-  bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 text-white font-semibold py-2 px-4 rounded-lg 
+  bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 text-white font-semibold py-4 px-4 rounded-lg 
   shadow-md shadow-blue-400/40 transition-all duration-300 ease-in-out"
         >
           <BotIcon className="h-5 text-white" /> Get AI Insights
@@ -122,7 +121,7 @@ const AIModal = (props: any) => {
               <SelectValue placeholder="Choose a frequently asked question" />
             </SelectTrigger>
             <SelectContent className="bg-white border rounded-md shadow-lg w-full max-w-[90%] mx-auto">
-              {frequentQuestions.map((question, index) => (
+              {frequentQuestions.map((question: any, index: number) => (
                 <SelectItem
                   key={index}
                   value={question}

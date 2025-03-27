@@ -22,8 +22,9 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
-import { daysArr } from "@/constants";
-import AIModal from "../common/AIModal";
+import { daysArr, frequentQuestions } from "@/constants";
+
+import AIModal from "@/components/common/AIModal";
 
 export default function NoticePeriodCalculator() {
   const { status } = useSession();
@@ -214,6 +215,7 @@ export default function NoticePeriodCalculator() {
             setDropDownUserQuestion={setDropDownUserQuestion}
             userQuestion={userQuestion}
             setUserQuestion={setUserQuestion}
+            frequentQuestions={frequentQuestions}
           />
         </>
       )}

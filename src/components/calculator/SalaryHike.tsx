@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import AIModal from "@/components/common/AIModal";
+
+import { daysArr, salaryHikeFrequentQuestions } from "@/constants";
 
 const formatNumberWithCommas = (number: number): string => {
   return number.toLocaleString("en-IN");
@@ -82,10 +86,14 @@ const numberToWords = (num: number): string => {
 };
 
 export default function SalaryHikeCalculator() {
+  const { status } = useSession();
   const [currentSalary, setCurrentSalary] = useState<string>("");
   const [incrementPercentage, setIncrementPercentage] = useState<string>("");
   const [hikedSalary, setHikedSalary] = useState<string>("");
   const [hikedSalaryInWords, setHikedSalaryInWords] = useState<string>("");
+  const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
+  const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
+  const [userQuestion, setUserQuestion] = useState<string>("");
 
   const calculateHikedSalary = () => {
     const salary = parseFloat(currentSalary.replace(/,/g, ""));
@@ -111,8 +119,8 @@ export default function SalaryHikeCalculator() {
   };
 
   return (
-    <main className="flex items-center justify-center bg-gray-100 lg:p-6">
-      <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
+    <main className="bg-gray-100 lg:p-6">
+      <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full lg:w-[320pt]">
         <h1 className="text-sm font-bold text-center mb-4">
           SALARY HIKE CALCULATOR
         </h1>
@@ -169,6 +177,19 @@ export default function SalaryHikeCalculator() {
           </CardContent>
         )}
       </Card>
+      {status === "authenticated" && (
+        <>
+          <AIModal
+            isAIModalOpen={isAIModalOpen}
+            setIsAIModalOpen={setIsAIModalOpen}
+            dropDownUserQuestion={dropDownUserQuestion}
+            setDropDownUserQuestion={setDropDownUserQuestion}
+            userQuestion={userQuestion}
+            setUserQuestion={setUserQuestion}
+            frequentQuestions={salaryHikeFrequentQuestions}
+          />
+        </>
+      )}
     </main>
   );
 }

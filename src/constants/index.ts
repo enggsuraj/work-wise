@@ -1,14 +1,31 @@
+import {
+  FaRegCalendarCheck,
+  FaPercentage,
+  FaBriefcase,
+  FaClipboardList,
+} from "react-icons/fa";
+import { MdAttachMoney, MdOutlineCalculate } from "react-icons/md";
+import { IoWalletOutline } from "react-icons/io5";
+
 export const daysArr = [30, 60, 90];
 
 export const routes = [
-  { path: "/notice-period", label: "Notice Period" },
-  { path: "/salary-hike", label: "Salary Hike" },
-  { path: "/hike-percentage", label: "Hike Percentage" },
-  { path: "/work-experience", label: "Work Experience" },
-  { path: "/lwd-checklist", label: "LWD Checklist" },
-  { path: "/gratuity", label: "Gratuity Calculator" },
-  { path: "/leave-encashment", label: "Leave Encashment" },
-  { path: "/ctc-vs-inhand", label: "CTC vs InHand Salary" },
+  { path: "/notice-period", label: "Notice Period", icon: FaRegCalendarCheck },
+  { path: "/salary-hike", label: "Salary Hike", icon: MdAttachMoney },
+  { path: "/hike-percentage", label: "Hike Percentage", icon: FaPercentage },
+  { path: "/work-experience", label: "Work Experience", icon: FaBriefcase },
+  { path: "/lwd-checklist", label: "LWD Checklist", icon: FaClipboardList },
+  { path: "/gratuity", label: "Gratuity Calculator", icon: MdOutlineCalculate },
+  {
+    path: "/leave-encashment",
+    label: "Leave Encashment",
+    icon: IoWalletOutline,
+  },
+  {
+    path: "/ctc-vs-inhand",
+    label: "CTC vs InHand Salary",
+    icon: MdOutlineCalculate,
+  },
 ];
 
 export const frequentQuestions = [

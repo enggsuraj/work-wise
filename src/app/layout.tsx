@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
@@ -117,11 +117,9 @@ export default function RootLayout({
       >
         <SessionProviderWrapper>
           <Header />
-          <main className="flex-grow justify-center items-center bg-gray-100 p-6">
-            <div className="flex flex-grow justify-center text-center p-6 pt-0">
-              <NavigationButtons />
-            </div>
-            <div className="flex-grow flex justify-center items-center">
+          <main className="h-full flex-grow justify-center items-center bg-gray-100 p-6">
+            <NavigationButtons />
+            <div className="h-full flex-grow flex justify-center items-center">
               {children}
               <Analytics />
             </div>

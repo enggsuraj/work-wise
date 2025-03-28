@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   authors: [{ name: "blogtheorem", url: "https://workwise.vercel.app" }],
   applicationName: "WorkWise",
   robots: "index, follow",
+  verification: {
+    google: "Tk_5dbJlZpiV5aRTXdx5_tE3OmKFZP4I8R1Qm6uLqZ0",
+  },
   openGraph: {
     title: "WorkWise - Career Growth Made Simple",
     description:

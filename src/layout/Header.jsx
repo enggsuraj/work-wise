@@ -46,14 +46,17 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-3 flex justify-between items-center w-full">
       <div className="flex items-center">
-        <Link href="/" rel="noopener noreferrer" className="flex items-center">
+        <Link
+          href="/"
+          rel="noopener noreferrer"
+          className="flex items-center cursor-pointer"
+        >
           <Image src={logo} alt="WorkWise Logo" width={20} height={15} />
-          <Label className="ml-2">WorkWise</Label>
+          <Label className="ml-2 cursor-pointer">WorkWise</Label>
+          <span className="italic text-sm font-light hidden md:inline">
+            &nbsp; - empowering careers with smarter tools
+          </span>
         </Link>
-        <span className="italic text-sm font-light hidden md:inline">
-          {" "}
-          - empowering careers with smarter tools
-        </span>
       </div>
 
       <div className="hidden md:flex gap-4 items-center">

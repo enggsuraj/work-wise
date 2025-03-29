@@ -158,6 +158,10 @@ export default function NoticePeriodCalculator() {
             ))}
           </div>
         </div>{" "}
+        <div className="mt-4 text-xs italic text-gray-500">
+          Note: The industry-standard notice period for IT roles is typically 60
+          days.
+        </div>
         <div className="w-full flex gap-2 mt-4">
           <Button
             onClick={calculateEndDate}

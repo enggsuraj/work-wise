@@ -1,4 +1,4 @@
-export const daysArr = [30, 60, 90];
+export const daysArr = [30, 45, 60, 90];
 
 export const routes = [
   { path: "/notice-period", label: "Notice Period" },

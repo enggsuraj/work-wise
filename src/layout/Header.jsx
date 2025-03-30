@@ -51,8 +51,8 @@ const Header = () => {
           rel="noopener noreferrer"
           className="flex items-center cursor-pointer"
         >
-          <Image src={logo} alt="WorkWise Logo" width={20} height={15} />
-          <Label className="ml-2 cursor-pointer">WorkWise</Label>
+          {/* <Image src={logo} alt="WorkWise Logo" width={20} height={15} /> */}
+          <Label className="ml-2 cursor-pointer">WorkWiseTool</Label>
           <span className="italic text-sm font-light hidden md:inline">
             &nbsp; - empowering careers with smarter tools
           </span>

@@ -6,7 +6,7 @@
 
 ## 🚀 Overview
 
-WorkWise is a sleek, user-friendly web application designed to simplify essential career calculations. Whether you're planning your last working day, estimating your salary hike, or tracking your work experience, WorkWise has you covered.
+WorkWise is a sleek, user-friendly web application designed to simplify essential career calculations. Whether you're planning your last working day, estimating your salary hike, or tracking your work experience, WorkWise has you covered
 
 ## 🔥 Features
 

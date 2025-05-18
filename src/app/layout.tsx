@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "WorkWise provides essential career calculators for notice period, last working day estimation, salary hike projections, and work experience tracking.",
   keywords: SEO_KEYWORDS,
-  authors: [{ name: "blogtheorem", url: "https://workwise.vercel.app" }],
+  authors: [{ name: "blogtheorem", url: "https://workwisetool.site" }],
   applicationName: "WorkWise",
   robots: "index, follow",
   icons: {
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
     title: "WorkWise - Career Growth Made Simple",
     description:
       "Get accurate estimations for your last working day, salary hikes, and notice period calculations.",
-    url: "https://workwise.vercel.app",
+    url: "https://workwisetool.site",
     siteName: "WorkWise",
     images: [
       {
-        url: "https://workwise.app/workwisetheme.png",
+        url: "https://workwisetool.site/workwisetheme.png",
         width: 1200,
         height: 630,
         alt: "WorkWise Career Calculator",
@@ -65,10 +65,10 @@ export const metadata: Metadata = {
     title: "WorkWise - Career Growth Made Simple",
     description:
       "Easily calculate your last working day, salary hike percentage, and total work experience.",
-    images: ["https://workwise.app/workwisepage.png"],
+    images: ["https://workwisetool.site/workwisepage.png"],
   },
   alternates: {
-    canonical: "https://workwise.vercel.app/notice-period",
+    canonical: "https://workwisetool.site/notice-period",
   },
 };
 
@@ -87,29 +87,29 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "WorkWise",
-              url: "https://workwise.vercel.app/notice-period",
+              url: "https://workwisetool.site/notice-period",
               description:
                 "WorkWise provides essential career calculators for notice period, last working day estimation, salary hike projections, and work experience tracking.",
               keywords: SEO_KEYWORDS,
               author: {
                 "@type": "Person",
                 name: "blogtheorem",
-                url: "https://workwise.vercel.app/notice-period",
+                url: "https://workwisetool.site/notice-period",
               },
               publisher: {
                 "@type": "Organization",
                 name: "WorkWise",
-                url: "https://workwise.vercel.app/notice-period",
+                url: "https://workwisetool.site/notice-period",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://workwise.app/workwisetheme.png",
+                  url: "https://workwisetool.site/workwisetheme.png",
                   width: 1200,
                   height: 630,
                 },
               },
               image: {
                 "@type": "ImageObject",
-                url: "https://workwise.app/workwisetheme.png",
+                url: "https://workwisetool.site/workwisetheme.png",
                 width: 1200,
                 height: 630,
                 caption: "WorkWise Career Calculator",
@@ -117,7 +117,7 @@ export default function RootLayout({
               sameAs: ["https://twitter.com/blogtheorem"],
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://workwise.vercel.app/search?q={query}",
+                target: "https://workwisetool.site/search?q={query}",
                 "query-input": "required name=query",
               },
             }),

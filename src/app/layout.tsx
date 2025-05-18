@@ -29,8 +29,15 @@ export const metadata: Metadata = {
   applicationName: "WorkWise",
   robots: "index, follow",
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/favicon.png' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    shortcut: '/favicon.png'
   },
   verification: {
     google: "Tk_5dbJlZpiV5aRTXdx5_tE3OmKFZP4I8R1Qm6uLqZ0",

@@ -51,8 +51,8 @@ const Header = () => {
           rel="noopener noreferrer"
           className="flex items-center cursor-pointer"
         >
-          {/* <Image src={logo} alt="WorkWise Logo" width={20} height={15} /> */}
-          <Label className="ml-2 cursor-pointer">WorkWiseTool</Label>
+          <Image src="/favicon.png" alt="WorkWise Logo" width={20} height={20} />
+          <Label className="ml-2 cursor-pointer">WorkWise</Label>
           <span className="italic text-sm font-light hidden md:inline">
             &nbsp; - empowering careers with smarter tools
           </span>
@@ -65,6 +65,9 @@ const Header = () => {
             Welcome {session?.user?.name}
           </Label>
         )}
+        <Link href="/blog" className="text-sm text-white hover:text-gray-300 transition-colors">
+          <Label className="text-sm cursor-pointer">Blog</Label>
+        </Link>
         {status === "authenticated" && (
           <>
             {socialLinks.map(({ href, icon }, index) => (
@@ -114,6 +117,9 @@ const Header = () => {
               Welcome {session?.user?.name}
             </Label>
           )}
+          <Link href="/blog" className="text-sm text-white hover:text-gray-300 transition-colors mb-2">
+            Blog
+          </Link>
           {status === "authenticated" && (
             <>
               {socialLinks.map(({ href, icon }, index) => (

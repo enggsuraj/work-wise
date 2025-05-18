@@ -82,7 +82,7 @@ The project is deployed using Vercel. To deploy your own version:
 
 ## 🌐 Live Demo
 
-Check out the live version here: [WorkWise](https://workwisetool.vercel.app)
+Check out the live version here: [WorkWise](https://workwisetool.site)
 
 ## 👥 Contributing
 

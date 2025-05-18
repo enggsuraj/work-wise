@@ -168,7 +168,7 @@ const blogPosts = {
   }
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params:any }): Promise<Metadata> {
   const post = blogPosts[params.slug as keyof typeof blogPosts];
   
   return {
@@ -184,7 +184,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+export default function BlogPost({ params }: any) {
   const post = blogPosts[params.slug as keyof typeof blogPosts];
 
   if (!post) {

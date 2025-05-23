@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "WorkWise provides essential career calculators for notice period, last working day estimation, salary hike projections, and work experience tracking.",
   keywords: SEO_KEYWORDS,
   authors: [{ name: "blogtheorem", url: "https://workwisetool.site" }],
-  applicationName: "WorkWise",
+  applicationName: "WorkWiseTool",
   robots: "index, follow",
   icons: {
     icon: [

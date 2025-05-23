@@ -100,7 +100,13 @@ export const noticePeriodKeywords = [
   "Notice period calculation with offer letter",
   "Notice period calculation with employment contract",
   "Notice period calculation with HR policy",
-  "Notice period calculation with company policy"
+  "Notice period calculation with company policy",
+  "Notice period meaning in marathi",
+  "Notice period meaning in hindi",
+  "Notice period meaning in job",
+  "Notice period buyout meaning",
+  "Notice period in probation",
+  "Notice period buyout"
 ];
 
 export const routes = [
@@ -624,7 +630,6 @@ export const salaryHikeKeywords = [
   "Salary hike for college staff",
   "Salary hike for university staff",
   "Salary hike for research staff",
-  "Salary hike for scientists",
   "Salary hike for IT companies",
   "Salary hike for software engineers",
   "Salary hike for developers",

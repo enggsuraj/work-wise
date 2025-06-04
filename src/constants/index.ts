@@ -106,7 +106,7 @@ export const noticePeriodKeywords = [
   "Notice period meaning in job",
   "Notice period buyout meaning",
   "Notice period in probation",
-  "Notice period buyout"
+  "Notice period buyout",
 ];
 
 export const routes = [
@@ -118,6 +118,7 @@ export const routes = [
   { path: "/gratuity", label: "Gratuity Calculator" },
   { path: "/leave-encashment", label: "Leave Encashment" },
   { path: "/ctc-vs-inhand", label: "CTC vs InHand Salary" },
+  // { path: "/exit-interview", label: "Exit Interview Prep Kit" },
 ];
 
 export const frequentQuestions = [
@@ -653,7 +654,7 @@ export const salaryHikeKeywords = [
   "Salary hike for self-employed",
   "Salary hike for entrepreneurs",
   "Salary hike for business owners",
-  "Salary hike for startups in India"
+  "Salary hike for startups in India",
 ];
 
 export const hikePercentageKeywords = [
@@ -749,7 +750,7 @@ export const hikePercentageKeywords = [
   "Hike percentage for self-employed",
   "Hike percentage for entrepreneurs",
   "Hike percentage for business owners",
-  "Hike percentage for startups in India"
+  "Hike percentage for startups in India",
 ];
 
 export const workExperienceKeywords = [
@@ -846,7 +847,7 @@ export const workExperienceKeywords = [
   "Work experience for self-employed",
   "Work experience for entrepreneurs",
   "Work experience for business owners",
-  "Work experience for startups in India"
+  "Work experience for startups in India",
 ];
 
 export const lwdChecklistKeywords = [
@@ -939,7 +940,7 @@ export const lwdChecklistKeywords = [
   "LWD checklist for self-employed",
   "LWD checklist for entrepreneurs",
   "LWD checklist for business owners",
-  "LWD checklist for startups in India"
+  "LWD checklist for startups in India",
 ];
 
 export const gratuityCalculatorKeywords = [
@@ -1031,7 +1032,7 @@ export const gratuityCalculatorKeywords = [
   "Gratuity for self-employed",
   "Gratuity for entrepreneurs",
   "Gratuity for business owners",
-  "Gratuity for startups in India"
+  "Gratuity for startups in India",
 ];
 
 export const leaveEncashmentKeywords = [
@@ -1122,7 +1123,7 @@ export const leaveEncashmentKeywords = [
   "Leave encashment for self-employed",
   "Leave encashment for entrepreneurs",
   "Leave encashment for business owners",
-  "Leave encashment for startups in India"
+  "Leave encashment for startups in India",
 ];
 
 export const ctcVsInHandKeywords = [
@@ -1219,5 +1220,5 @@ export const ctcVsInHandKeywords = [
   "CTC vs InHand salary for self-employed",
   "CTC vs InHand salary for entrepreneurs",
   "CTC vs InHand salary for business owners",
-  "CTC vs InHand salary for startups in India"
+  "CTC vs InHand salary for startups in India",
 ];

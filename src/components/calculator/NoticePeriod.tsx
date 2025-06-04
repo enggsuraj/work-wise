@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, History } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -25,6 +25,7 @@ import {
 import { daysArr, frequentQuestions } from "@/constants";
 
 import AIModal from "@/components/common/AIModal";
+import NoticePeriodHoverTimeline from "./NoticePeriodHoverTimeline";
 
 export default function NoticePeriodCalculator() {
   const { status } = useSession();
@@ -186,14 +187,31 @@ export default function NoticePeriodCalculator() {
             <Label className="block text-sm font-medium mb-2">
               Your notice period end date is
             </Label>
-            <Label className="block font-bold text-xl text-green-700">
-              {endDate} on {weekDay}
-            </Label>
+            <div className="flex items-center justify-center gap-2">
+              <Label className="block font-bold text-xl text-green-700">
+                {endDate} on {weekDay}
+              </Label>
+              <NoticePeriodHoverTimeline
+                startDate={startDate}
+                endDate={
+                  startDate
+                    ? new Date(
+                        new Date(startDate).setDate(
+                          new Date(startDate).getDate() + parseInt(noticeDays)
+                        )
+                      ).toISOString()
+                    : ""
+                }
+                noticeDays={noticeDays}
+              >
+                <History className="w-6 h-6 text-green-700" />
+              </NoticePeriodHoverTimeline>
+            </div>
             <Label className="block text-sm mt-4">
               Upcoming Monday:{" "}
               <span className="font-semibold">{nextMonday}</span>
             </Label>
-            {status === "authenticated" && googleCalendarDate && (
+            {googleCalendarDate && (
               <div className="flex justify-center mt-4">
                 <a
                   href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Last+Working+Day&dates=${googleCalendarDate}/${googleCalendarDate}`}

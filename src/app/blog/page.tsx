@@ -9,6 +9,12 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: "Using AI to Negotiate Your Salary: Tips and Tools",
+    excerpt: "Discover how AI can help you research market rates, practice negotiations, and build a compelling case for your next salary discussion.",
+    slug: "ai-salary-negotiation",
+    date: "2025-08-22",
+  },
+  {
     title: "Understanding Notice Periods: A Complete Guide",
     excerpt: "Learn everything about notice periods, their importance, and how to manage them effectively during job transitions.",
     slug: "understanding-notice-periods",

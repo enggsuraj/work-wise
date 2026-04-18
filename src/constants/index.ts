@@ -274,6 +274,86 @@ export const routes: AppRoute[] = [
   },
 ];
 
+/** High-level grouping for navigation and directory pages. */
+export type RouteCategoryId =
+  | "notice-exit"
+  | "salary-tax"
+  | "offers-career"
+  | "utilities";
+
+export const ROUTE_CATEGORY_LABEL: Record<RouteCategoryId, string> = {
+  "notice-exit": "Notice & exit",
+  "salary-tax": "Salary, tax & benefits",
+  "offers-career": "Offers & switching",
+  utilities: "Lists & utilities",
+};
+
+export const ROUTE_CATEGORY_ORDER: RouteCategoryId[] = [
+  "notice-exit",
+  "salary-tax",
+  "offers-career",
+  "utilities",
+];
+
+export const routeCategoryByPath: Record<string, RouteCategoryId> = {
+  "/notice-period": "notice-exit",
+  "/lwd-checklist": "notice-exit",
+  "/notice-buyout": "notice-exit",
+  "/garden-leave": "notice-exit",
+  "/lwd-reminders": "notice-exit",
+  "/full-and-final": "notice-exit",
+  "/career-summary": "notice-exit",
+  "/exit-documents-checklist": "notice-exit",
+  "/employment-bond": "notice-exit",
+  "/salary-hike": "salary-tax",
+  "/hike-percentage": "salary-tax",
+  "/gratuity": "salary-tax",
+  "/leave-encashment": "salary-tax",
+  "/ctc-vs-inhand": "salary-tax",
+  "/pf-epf": "salary-tax",
+  "/tax-regime-compare": "salary-tax",
+  "/take-home-tds": "salary-tax",
+  "/hra-exemption": "salary-tax",
+  "/bonus-tax-timing": "salary-tax",
+  "/nps-tax-benefit": "salary-tax",
+  "/esi-professional-tax": "salary-tax",
+  "/relocation-comparison": "offers-career",
+  "/offer-decoder": "offers-career",
+  "/job-switch-breakeven": "offers-career",
+  "/rsu-cliff": "offers-career",
+  "/contract-vs-permanent": "offers-career",
+  "/work-experience": "utilities",
+  "/saved-scenarios": "utilities",
+};
+
+export function getRouteCategory(path: string): RouteCategoryId {
+  return routeCategoryByPath[path] ?? "utilities";
+}
+
+export function groupRoutesByCategory(
+  list: AppRoute[]
+): Record<RouteCategoryId, AppRoute[]> {
+  const grouped: Record<RouteCategoryId, AppRoute[]> = {
+    "notice-exit": [],
+    "salary-tax": [],
+    "offers-career": [],
+    utilities: [],
+  };
+  for (const r of list) {
+    grouped[getRouteCategory(r.path)].push(r);
+  }
+  return grouped;
+}
+
+/** Shortcuts shown in the top nav for one-tap access. */
+export const POPULAR_ROUTE_PATHS: string[] = [
+  "/notice-period",
+  "/take-home-tds",
+  "/gratuity",
+  "/tax-regime-compare",
+  "/salary-hike",
+];
+
 export const frequentQuestions = [
   "Can my notice period be reduced or waived?",
   "What happens if I resign without serving the notice period?",

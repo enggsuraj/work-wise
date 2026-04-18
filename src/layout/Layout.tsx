@@ -13,7 +13,7 @@ const Layout = ({ children }: any) => {
   return (
     <div className="flex min-h-screen w-full max-w-full flex-col">
       <Header />
-      <main className="flex w-full min-w-0 flex-1 flex-col bg-gray-100 p-6 dark:bg-background">
+      <main className="flex w-full min-w-0 flex-1 flex-col gap-4 bg-gray-100 p-6 sm:gap-6 dark:bg-background">
         {!isLoginPage && (
           <div className="w-full shrink-0 print:hidden">
             <NavigationButtons />

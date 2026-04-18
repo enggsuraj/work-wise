@@ -117,8 +117,8 @@ export default function SalaryHikeCalculator() {
   };
 
   return (
-    <main className="bg-gray-100 lg:p-6">
-      <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full lg:w-[320pt]">
+    <div className="flex w-full flex-col items-center">
+      <Card className="w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-4 lg:p-8">
         <h1 className="text-sm font-bold text-center mb-4">
           SALARY HIKE CALCULATOR
         </h1>
@@ -188,6 +188,6 @@ export default function SalaryHikeCalculator() {
           />
         </>
       )}
-    </main>
+    </div>
   );
 }

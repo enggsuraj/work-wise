@@ -217,6 +217,61 @@ export const routes: AppRoute[] = [
     label: "LWD calendar (.ics)",
     description: "Download a calendar reminder for your last working day",
   },
+  {
+    path: "/take-home-tds",
+    label: "Take-home & TDS (monthly)",
+    description: "Rough monthly in-hand after PF, PT, and tax (illustrative)",
+  },
+  {
+    path: "/hra-exemption",
+    label: "HRA exemption",
+    description: "Estimate monthly exempt HRA under common rules (old regime style)",
+  },
+  {
+    path: "/bonus-tax-timing",
+    label: "Bonus & marginal tax",
+    description: "Effective tax on annual bonus (same FY, slab effect)",
+  },
+  {
+    path: "/nps-tax-benefit",
+    label: "NPS (80CCD) benefit",
+    description: "Illustrative tax saving and corpus from extra NPS contribution",
+  },
+  {
+    path: "/esi-professional-tax",
+    label: "ESI & professional tax",
+    description: "Rough ESI employee deduction and state-wise PT (illustrative)",
+  },
+  {
+    path: "/job-switch-breakeven",
+    label: "Job switch break-even",
+    description: "Months to recover notice buyout and relocation from higher pay",
+  },
+  {
+    path: "/rsu-cliff",
+    label: "RSU / equity cliff",
+    description: "Vesting schedule with cliff and annual value breakdown",
+  },
+  {
+    path: "/contract-vs-permanent",
+    label: "Contract vs permanent",
+    description: "Compare contract rate to CTC with benefits assumption",
+  },
+  {
+    path: "/exit-documents-checklist",
+    label: "Exit & relieving docs",
+    description: "Checklist for experience letter, FnF, PF, and verification",
+  },
+  {
+    path: "/employment-bond",
+    label: "Employment bond estimate",
+    description: "Linear training-bond cost if you leave early (illustrative)",
+  },
+  {
+    path: "/saved-scenarios",
+    label: "Saved bookmarks",
+    description: "Save and reopen calculator links (local device only)",
+  },
 ];
 
 export const frequentQuestions = [
@@ -688,6 +743,31 @@ export const LWD_CHECKLIST = {
     "Keep HR contact details for future employment verification or reference checks.",
     "Plan for tax implications of mid-year job change and consult CA if needed.",
     "Send thank you message to HR and manager for smooth exit process.",
+  ],
+};
+
+/** Relieving / experience letter and verification checklist (illustrative). */
+export const EXPERIENCE_RELIVING_CHECKLIST = {
+  "Letters to obtain": [
+    "Experience / service certificate with designation and tenure.",
+    "Relieving letter with last working date and clearance statement.",
+    "Salary slips for the full notice period and any arrears.",
+    "Form 16 (or equivalent) for the financial year of exit.",
+    "Full and final settlement statement / payslip for FnF payout.",
+    "Gratuity payment letter or eligibility communication (if applicable).",
+    "PF passbook / UAN statement showing last contribution.",
+    "No-dues / clearance from IT, admin, finance, and facilities (copies).",
+  ],
+  "Background verification": [
+    "HR / manager contact for employment verification (email or phone).",
+    "Official offer letters and promotion letters (soft copies).",
+    "Appraisal or performance letters if needed for future roles.",
+  ],
+  "Accounts & benefits": [
+    "PF transfer or withdrawal acknowledgement (Form 13 / claim status).",
+    "Health insurance continuity (portability or new policy before gap).",
+    "Superannuation or NPS corporate tier details if applicable.",
+    "Reimbursement and FBP settlement proof.",
   ],
 };
 

@@ -3,6 +3,7 @@
 import { SessionProvider } from "next-auth/react";
 
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import PwaRegister from "@/components/pwa/PwaRegister";
 
 export default function SessionProviderWrapper({
   children,
@@ -11,7 +12,10 @@ export default function SessionProviderWrapper({
 }) {
   return (
     <SessionProvider>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <PwaRegister />
+        {children}
+      </ThemeProvider>
     </SessionProvider>
   );
 }

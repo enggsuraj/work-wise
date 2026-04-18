@@ -200,6 +200,58 @@ const blogPosts = {
     author: "WorkWise Team",
     readTime: "10 min read"
   },
+  "gratuity-rules-fixed-term-india": {
+    title: "Gratuity for Fixed-Term, Contract & Gig Workers: What Changed",
+    content: `
+      <p class="text-sm text-gray-600 mb-6 border-l-4 border-gray-300 pl-4">This article is for general information only. Labour law depends on notifications in force for your establishment, state rules, and your contract. Section numbers and timelines are described as commonly reported in commentary—verify against official gazettes. Confirm eligibility and amounts with HR or a qualified adviser.</p>
+
+      <p class="text-gray-700 leading-relaxed mb-6">The era of “join a company and retire there” is fading for many Indians. IT consultants on two-year projects, agency staff, and delivery partners on apps all illustrate the same tension: people work hard, but <strong>gratuity</strong> under classic rules often required about <strong>five years</strong> in one place—so short stints meant <strong>no</strong> long-term payout. Policy under the <strong>Code on Social Security, 2020</strong> is widely discussed as coming into fuller effect from <strong>21 November 2025</strong>, reframing freelancers, contract staff, and gig workers as part of the formal <strong>social security</strong> conversation—not “temporary help” with no protections.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">1. Fixed-term employees (FTEs): the “one-year” rule and pro-rata</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">Under the old pattern, a three-year fixed contract might end with salary but <strong>no gratuity</strong> if five years were never completed. Commentary on the new Code often highlights <strong>Section 53</strong>–style provisions: for <strong>fixed-term employment</strong>, eligibility for gratuity may arise after about <strong>one year</strong> of continuous service, with <strong>pro-rata</strong> payment for the period worked—rather than a five-year cliff.</p>
+      <p class="text-gray-700 leading-relaxed mb-4"><strong>Pro-rata</strong> means you are paid in line with qualifying service completed, not blocked until an unreachable milestone.</p>
+      <p class="text-gray-700 leading-relaxed mb-6"><strong>Example:</strong> You join a design firm on a <strong>two-year</strong> fixed-term contract. When the contract ends, gratuity may be calculated for those <strong>two years</strong> of service (subject to your letter stating fixed-term employment and rules applying to your employer)—not denied because you “did not stay five years.” The policy intent is to reduce the incentive to use short contracts only to avoid statutory benefits.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">2. Contract workers: parity and principal employer</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">“Contract labour” has often meant weaker hours, wages, or benefits than permanent peers doing similar work. The new codes push <strong>parity</strong> of service conditions—including wages, hours, and social security—where the work is comparable.</p>
+      <p class="text-gray-700 leading-relaxed mb-6"><strong>Principal employer:</strong> If the <strong>contractor</strong> (agency) fails to pay gratuity, the <strong>principal employer</strong> (the organisation where you actually work) may be liable in many setups. For fixed-term-style contracts, eligibility ties closely to the same <strong>~one-year</strong> framing. Check your contract chain and current notifications.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">3. Gig, platform, and flexible workers</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">The Code introduces defined terms such as <strong>gig worker</strong> and <strong>platform worker</strong>. Ride-hail and delivery roles rarely fit a single “last drawn salary” like a monthly Basic+DA, so the <strong>(15 ÷ 26) × wages × years</strong> formula does not map one-to-one.</p>
+      <p class="text-gray-700 leading-relaxed mb-4">Instead, policy envisages a <strong>Social Security Fund</strong> built from <strong>aggregator</strong> (app/platform) contributions under prescribed rules. Benefits from such mechanisms may include health and maternity support and related social security—not necessarily a paper “gratuity cheque” from a line manager when you stop driving. Exact percentages and caps depend on notified rules; treat this as separate from the classic employee calculator below.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">4. How to calculate (FTE-style illustration)</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">For employees where the standard formula applies, <strong>wages</strong> for gratuity should reflect the <strong>50% rule</strong> style floor when CTC is split across components: wages used in the formula are often taken as at least <strong>half of remuneration</strong>, or your actual Basic + DA if higher.</p>
+      <div class="bg-gray-100 p-4 rounded-lg mb-4">
+        <p class="text-gray-800 font-mono text-sm sm:text-base mb-2">Gratuity = (15 ÷ 26) × last drawn wages × completed years of service</p>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-2"><strong>Worked example (fixed-term software role, three years):</strong></p>
+      <ul class="list-disc pl-6 mb-4 space-y-1 text-gray-700">
+        <li>Monthly CTC: <strong>₹80,000</strong></li>
+        <li>Wages (50% of CTC for this illustration): <strong>₹40,000</strong></li>
+        <li>Years worked: <strong>3</strong></li>
+      </ul>
+      <p class="text-gray-700 leading-relaxed mb-4">(15 ÷ 26) × 40,000 × 3 ≈ <strong>₹69,231</strong> (rounded). Under a strict old “five-year” reading you might have received <strong>₹0</strong>; under FTE-friendly rules, a pro-rata style outcome for three years is the point of the illustration. Use our <a href="/gratuity" class="text-blue-700 underline hover:text-blue-900">gratuity calculator</a> with Basic+DA and optional <strong>50% CTC</strong> floor.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">5. What to do now</h2>
+      <p class="text-gray-800 leading-relaxed mb-2 font-semibold">Employees (FTE &amp; contract)</p>
+      <ul class="list-disc pl-6 mb-6 space-y-2 text-gray-700">
+        <li><strong>Contract wording:</strong> Does it say <strong>fixed-term</strong> / <strong>fixed-term employment</strong> clearly? That clarity matters for how eligibility is argued.</li>
+        <li><strong>Payslip:</strong> Aim for <strong>Basic + DA</strong> at least around <strong>50% of total income</strong> if your structure is allowance-heavy—otherwise gratuity on a thin basic may be lower than a fair wage definition would imply.</li>
+      </ul>
+      <p class="text-gray-800 leading-relaxed mb-2 font-semibold">Employers</p>
+      <p class="text-gray-700 leading-relaxed mb-4">Gig and FTE rules add <strong>compliance and cash-flow</strong> complexity: aggregators may owe fund contributions; fixed-term staff may trigger gratuity sooner. Sudden exits of many contract workers can stress liquidity if liabilities are not <strong>provisioned</strong>. Many companies use <strong>approved gratuity trusts</strong>, insurance-backed group gratuity, or actuarial funding—choose structures with your auditors and advisers; timelines for settlement can be tight under updated discourse, so plan ahead.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">Conclusion</h2>
+      <p class="text-gray-700 leading-relaxed mb-6">The Code on Social Security, 2020 reflects a simple idea: <strong>work is work</strong>, whether it lasts one year or ten. Fixed-term and contract employees gain a clearer path to <strong>pro-rata</strong> style benefits; gig workers get a foothold via <strong>platform-linked social security</strong>. Rights come with homework: read your contract and payslip, and keep evidence of service. Employers should model liabilities and fund them prudently—not scramble after the fact.</p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">Further reading</h2>
+      <p class="text-gray-700 leading-relaxed mb-6"><a href="https://www.bajajfinserv.in/investments/gratuity-rules" class="text-blue-700 underline hover:text-blue-900" target="_blank" rel="noopener noreferrer">Gratuity rules — Bajaj Finserv</a> (popular summary). Always cross-check with official gazette notifications and your employer.</p>
+    `,
+    date: "2026-04-18",
+    author: "WorkWise Team",
+    readTime: "12 min read"
+  },
   "career-transition-tips": {
     title: "Career Transition Tips: Making a Smooth Switch",
     content: `

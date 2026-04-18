@@ -1,6 +1,5 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { CalendarIcon, History } from "lucide-react";
 
@@ -28,8 +27,6 @@ import AIModal from "@/components/common/AIModal";
 import NoticePeriodHoverTimeline from "./NoticePeriodHoverTimeline";
 
 export default function NoticePeriodCalculator() {
-  const { status } = useSession();
-
   const [startDate, setStartDate] = useState<string>("");
   const [noticeDays, setNoticeDays] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
@@ -228,7 +225,7 @@ export default function NoticePeriodCalculator() {
         )}
       </Card>
 
-      {status === "authenticated" && googleCalendarDate && (
+      {googleCalendarDate && (
         <>
           <AIModal
             isAIModalOpen={isAIModalOpen}

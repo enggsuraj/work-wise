@@ -1,6 +1,5 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { BotIcon } from "lucide-react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -34,8 +33,6 @@ const genAI = new GoogleGenerativeAI(
 );
 
 const AIModal = (props: any) => {
-  const { data: session } = useSession();
-
   const {
     isAIModalOpen,
     setIsAIModalOpen,
@@ -50,7 +47,7 @@ const AIModal = (props: any) => {
   const [aiInsight, setAIInsight] = useState<string>("");
 
   const fetchAIInsights = async (question: string) => {
-    if (!session || !question) return;
+    if (!question?.trim()) return;
     setLoading(true);
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });

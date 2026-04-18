@@ -2,35 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
-import { useSession, signOut } from "next-auth/react";
+import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 import { Label } from "@/components/ui/label";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
-import logo from "@/icons/logo.png";
-
 const Header = () => {
-  const { data: session, status } = useSession();
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const socialLinks = [
-    {
-      href: "https://www.linkedin.com/in/enggsuraj",
-      icon: <FaLinkedin size={18} />,
-    },
-    {
-      href: "https://instagram.com/blogtheorem",
-      icon: <FaInstagram size={18} />,
-    },
     {
       href: "https://github.com/enggsuraj/work-wise",
       icon: <FaGithub size={18} />,
@@ -62,55 +43,33 @@ const Header = () => {
 
       <div className="hidden items-center gap-3 md:flex">
         <ThemeToggle />
-        {status === "authenticated" && (
-          <Label className="text-sm text-muted-foreground">
-            Welcome {session?.user?.name}
-          </Label>
-        )}
         <Link
           href="/blog"
           className="text-sm text-foreground transition-colors hover:underline"
         >
           <Label className="cursor-pointer text-sm">Blog</Label>
         </Link>
-        {status === "authenticated" && (
-          <>
-            {socialLinks.map(({ href, icon }, index) => (
-              <Link
-                key={index}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground"
-              >
-                {icon}
-              </Link>
-            ))}
-            {extraLinks.map(({ href, label }, index) => (
-              <Link
-                key={index}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Label className="cursor-pointer text-sm">{label}</Label>
-              </Link>
-            ))}
-          </>
-        )}
-        {status === "authenticated" ? (
-          <button
-            type="button"
-            onClick={() => signOut()}
-            className="cursor-pointer text-sm underline-offset-4 hover:underline"
+        {socialLinks.map(({ href, icon }, index) => (
+          <Link
+            key={index}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground"
           >
-            Sign Out
-          </button>
-        ) : (
-          <Link href="/login" rel="noopener noreferrer">
-            <Label className="cursor-pointer text-sm">Sign In for More</Label>
+            {icon}
           </Link>
-        )}
+        ))}
+        {extraLinks.map(({ href, label }, index) => (
+          <Link
+            key={index}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Label className="cursor-pointer text-sm">{label}</Label>
+          </Link>
+        ))}
       </div>
 
       <div className="flex items-center gap-2 md:hidden">
@@ -128,11 +87,6 @@ const Header = () => {
 
       {menuOpen && (
         <div className="absolute top-14 right-0 z-50 flex w-52 flex-col items-start gap-3 border border-border bg-card p-4 shadow-lg md:hidden">
-          {status === "authenticated" && (
-            <Label className="text-sm text-muted-foreground">
-              Welcome {session?.user?.name}
-            </Label>
-          )}
           <Link
             href="/blog"
             className="text-sm text-foreground hover:underline"
@@ -140,49 +94,29 @@ const Header = () => {
           >
             Blog
           </Link>
-          {status === "authenticated" && (
-            <>
-              {socialLinks.map(({ href, icon }, index) => (
-                <Link
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {icon} <span>Social</span>
-                </Link>
-              ))}
-              {extraLinks.map(({ href, label }, index) => (
-                <Link
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  <Label className="cursor-pointer text-sm">{label}</Label>
-                </Link>
-              ))}
-            </>
-          )}
-          {status === "authenticated" ? (
-            <button
-              type="button"
-              onClick={() => {
-                setMenuOpen(false);
-                signOut();
-              }}
-              className="cursor-pointer text-sm"
+          {socialLinks.map(({ href, icon }, index) => (
+            <Link
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+              onClick={() => setMenuOpen(false)}
             >
-              Sign Out
-            </button>
-          ) : (
-            <Link href="/login" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
-              <Label className="cursor-pointer text-sm">Sign In for More</Label>
+              {icon} <span>Social</span>
             </Link>
-          )}
+          ))}
+          {extraLinks.map(({ href, label }, index) => (
+            <Link
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              <Label className="cursor-pointer text-sm">{label}</Label>
+            </Link>
+          ))}
         </div>
       )}
     </header>

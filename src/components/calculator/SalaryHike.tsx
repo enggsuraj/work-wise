@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -86,7 +85,6 @@ const numberToWords = (num: number): string => {
 };
 
 export default function SalaryHikeCalculator() {
-  const { status } = useSession();
   const [currentSalary, setCurrentSalary] = useState<string>("");
   const [incrementPercentage, setIncrementPercentage] = useState<string>("");
   const [hikedSalary, setHikedSalary] = useState<string>("");
@@ -177,7 +175,7 @@ export default function SalaryHikeCalculator() {
           </CardContent>
         )}
       </Card>
-      {status === "authenticated" && hikedSalary && (
+      {hikedSalary && (
         <>
           <AIModal
             isAIModalOpen={isAIModalOpen}

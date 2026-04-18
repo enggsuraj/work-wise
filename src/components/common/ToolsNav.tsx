@@ -91,7 +91,12 @@ export default function ToolsNav() {
           </Link>
           <Popover open={browseOpen} onOpenChange={setBrowseOpen}>
             <PopoverTrigger asChild>
-              <Button type="button" variant="outline" size="sm" className="gap-1">
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="cursor-pointer gap-1 border-neutral-200 bg-white text-neutral-900 hover:bg-white hover:text-neutral-900 dark:border-neutral-300 dark:bg-white dark:text-neutral-900 dark:hover:bg-white"
+              >
                 Browse
                 <ChevronDown className="size-4 opacity-70" aria-hidden />
               </Button>

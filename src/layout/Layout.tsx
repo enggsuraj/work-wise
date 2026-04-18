@@ -11,17 +11,17 @@ const Layout = ({ children }: any) => {
   const isLoginPage = pathname === "/login";
 
   return (
-    <>
+    <div className="flex min-h-screen w-full max-w-full flex-col">
       <Header />
-      <main className="flex-grow justify-center items-center bg-gray-100 p-6 dark:bg-background">
+      <main className="flex w-full min-w-0 flex-1 flex-col bg-gray-100 p-6 dark:bg-background">
         {!isLoginPage && (
-          <div className="flex flex-grow justify-center p-6 pt-0 text-center print:hidden">
+          <div className="w-full shrink-0 print:hidden">
             <NavigationButtons />
           </div>
         )}
         <div
-          className={`flex-grow flex justify-center items-center ${
-            isLoginPage ? "h-full" : ""
+          className={`flex w-full min-w-0 flex-1 flex-col items-stretch ${
+            isLoginPage ? "min-h-0 justify-center" : ""
           }`}
         >
           {children}
@@ -29,7 +29,7 @@ const Layout = ({ children }: any) => {
       </main>
       <Footer />
       <Analytics />
-    </>
+    </div>
   );
 };
 

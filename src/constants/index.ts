@@ -1327,6 +1327,9 @@ export const gratuityCalculatorKeywords = [
   "Gratuity for entrepreneurs",
   "Gratuity for business owners",
   "Gratuity for startups in India",
+  "Gratuity Social Security Code 2020",
+  "Gratuity rules 2026 India",
+  "Fixed term employee gratuity calculator",
 ];
 
 export const leaveEncashmentKeywords = [

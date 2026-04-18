@@ -9,6 +9,13 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: "Gratuity for Fixed-Term, Contract & Gig Workers: What Changed",
+    excerpt:
+      "Why the five-year cliff mattered, what Nov 2025 brings, FTE pro-rata after ~1 year, contract parity & principal employers, gig platforms vs the standard formula, a ₹80k CTC worked example, and what to check before you sign.",
+    slug: "gratuity-rules-fixed-term-india",
+    date: "2026-04-18",
+  },
+  {
     title: "Using AI to Negotiate Your Salary: Tips and Tools",
     excerpt: "Discover how AI can help you research market rates, practice negotiations, and build a compelling case for your next salary discussion.",
     slug: "ai-salary-negotiation",

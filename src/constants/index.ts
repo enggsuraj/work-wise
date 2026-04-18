@@ -109,16 +109,114 @@ export const noticePeriodKeywords = [
   "Notice period buyout",
 ];
 
-export const routes = [
-  { path: "/notice-period", label: "Notice Period" },
-  { path: "/salary-hike", label: "Salary Hike" },
-  { path: "/hike-percentage", label: "Hike Percentage" },
-  { path: "/work-experience", label: "Work Experience" },
-  { path: "/lwd-checklist", label: "LWD Checklist" },
-  { path: "/gratuity", label: "Gratuity Calculator" },
-  { path: "/leave-encashment", label: "Leave Encashment" },
-  { path: "/ctc-vs-inhand", label: "CTC vs InHand Salary" },
-  // { path: "/exit-interview", label: "Exit Interview Prep Kit" },
+/** Relative cost index (rent + living); illustrative only. */
+export const CITY_COST_INDEX: Record<string, number> = {
+  Bengaluru: 100,
+  Hyderabad: 92,
+  Pune: 95,
+  Chennai: 88,
+  Mumbai: 135,
+  "National Capital Region": 128,
+  Kolkata: 78,
+  Ahmedabad: 82,
+  Kochi: 85,
+  Remote: 90,
+};
+
+export type AppRoute = {
+  path: string;
+  label: string;
+  description: string;
+};
+
+export const routes: AppRoute[] = [
+  {
+    path: "/notice-period",
+    label: "Notice Period",
+    description:
+      "Calculate your last working day based on notice period",
+  },
+  {
+    path: "/salary-hike",
+    label: "Salary Hike",
+    description: "Estimate your salary increase after appraisal",
+  },
+  {
+    path: "/hike-percentage",
+    label: "Hike Percentage",
+    description: "Calculate your salary hike percentage",
+  },
+  {
+    path: "/work-experience",
+    label: "Work Experience",
+    description: "Track your professional experience duration",
+  },
+  {
+    path: "/lwd-checklist",
+    label: "LWD Checklist",
+    description: "Complete checklist for your last working day",
+  },
+  {
+    path: "/gratuity",
+    label: "Gratuity Calculator",
+    description: "Calculate your gratuity amount",
+  },
+  {
+    path: "/leave-encashment",
+    label: "Leave Encashment",
+    description: "Calculate your leave encashment amount",
+  },
+  {
+    path: "/ctc-vs-inhand",
+    label: "CTC vs InHand Salary",
+    description: "Compare CTC and in-hand salary",
+  },
+  {
+    path: "/pf-epf",
+    label: "PF / EPF estimator",
+    description:
+      "Project EPF corpus from monthly contributions and interest",
+  },
+  {
+    path: "/full-and-final",
+    label: "Full & Final (FnF)",
+    description: "Rough settlement estimate: salary, leave, bonus, deductions",
+  },
+  {
+    path: "/tax-regime-compare",
+    label: "Old vs new tax regime",
+    description: "Compare India income tax under old and new regimes (illustrative)",
+  },
+  {
+    path: "/relocation-comparison",
+    label: "Relocation & CoL",
+    description: "Compare cities using cost-of-living style indices",
+  },
+  {
+    path: "/offer-decoder",
+    label: "Offer decoder",
+    description: "Break down fixed, variable, bonus, and equity over time",
+  },
+  {
+    path: "/notice-buyout",
+    label: "Notice buyout",
+    description: "Estimate notice buyout cost from salary and days",
+  },
+  {
+    path: "/garden-leave",
+    label: "Garden leave planner",
+    description: "Model notice period overlap with planned leave days",
+  },
+  {
+    path: "/career-summary",
+    label: "Career summary export",
+    description: "Compile numbers and print or copy a shareable summary",
+  },
+  {
+    path: "/lwd-reminders",
+    label: "LWD calendar (.ics)",
+    description: "Download a calendar reminder for your last working day",
+  },
 ];
 
 export const frequentQuestions = [

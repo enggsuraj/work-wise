@@ -2,10 +2,16 @@
 
 import { SessionProvider } from "next-auth/react";
 
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+
 export default function SessionProviderWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </SessionProvider>
+  );
 }

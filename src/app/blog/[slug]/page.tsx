@@ -319,9 +319,14 @@ const blogPosts = {
   }
 };
 
-export async function generateMetadata({ params }: { params:any }): Promise<Metadata> {
-  const post = blogPosts[params.slug as keyof typeof blogPosts];
-  
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts[slug as keyof typeof blogPosts];
+
   return {
     title: post?.title || "Blog Post Not Found",
     description: "A comprehensive guide to understanding notice periods in professional settings.",
@@ -335,8 +340,13 @@ export async function generateMetadata({ params }: { params:any }): Promise<Meta
   };
 }
 
-export default function BlogPost({ params }: any) {
-  const post = blogPosts[params.slug as keyof typeof blogPosts];
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = blogPosts[slug as keyof typeof blogPosts];
 
   if (!post) {
     return (

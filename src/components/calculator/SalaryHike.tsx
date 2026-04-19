@@ -5,10 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import AIModal from "@/components/common/AIModal";
+// import AIModal from "@/components/common/AIModal";
 import { CalculatorHeading } from "@/components/common/CalculatorHeading";
 
-import { daysArr, salaryHikeFrequentQuestions } from "@/constants";
+import { daysArr } from "@/constants";
 
 const formatNumberWithCommas = (number: number): string => {
   return number.toLocaleString("en-IN");
@@ -90,9 +90,9 @@ export default function SalaryHikeCalculator() {
   const [incrementPercentage, setIncrementPercentage] = useState<string>("");
   const [hikedSalary, setHikedSalary] = useState<string>("");
   const [hikedSalaryInWords, setHikedSalaryInWords] = useState<string>("");
-  const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
-  const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
-  const [userQuestion, setUserQuestion] = useState<string>("");
+  // const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
+  // const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
+  // const [userQuestion, setUserQuestion] = useState<string>("");
 
   const calculateHikedSalary = () => {
     const salary = parseFloat(currentSalary.replace(/,/g, ""));
@@ -176,6 +176,7 @@ export default function SalaryHikeCalculator() {
           </CardContent>
         )}
       </Card>
+      {/* Get AI Insights
       {hikedSalary && (
         <>
           <AIModal
@@ -189,6 +190,7 @@ export default function SalaryHikeCalculator() {
           />
         </>
       )}
+      */}
     </div>
   );
 }

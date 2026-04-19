@@ -1,18 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, History } from "lucide-react";
+import { History } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@/components/ui/popover";
 import {
   Select,
   SelectTrigger,
@@ -21,11 +14,33 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
-import { daysArr, frequentQuestions } from "@/constants";
+import { daysArr } from "@/constants";
+import { buildIcsContent, downloadTextFile } from "@/lib/ics";
 
-import AIModal from "@/components/common/AIModal";
+// import AIModal from "@/components/common/AIModal";
 import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+import { DatePickerInput } from "@/components/common/DatePickerInput";
 import NoticePeriodHoverTimeline from "./NoticePeriodHoverTimeline";
+
+/** Last working day after notice; local noon avoids UTC boundary bugs. */
+function lastWorkingDayDate(startIso: string, noticeDaysStr: string): Date | null {
+  if (!startIso || !noticeDaysStr || isNaN(Number(noticeDaysStr))) return null;
+  const d = new Date(`${startIso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return null;
+  d.setDate(d.getDate() + parseInt(noticeDaysStr, 10));
+  return d;
+}
+
+/** YYYYMMDD → next calendar day YYYYMMDD (Google all-day end is exclusive). */
+function ymdNextDay(ymd: string): string {
+  const y = parseInt(ymd.slice(0, 4), 10);
+  const mo = parseInt(ymd.slice(4, 6), 10) - 1;
+  const day = parseInt(ymd.slice(6, 8), 10);
+  const d = new Date(y, mo, day, 12, 0, 0);
+  d.setDate(d.getDate() + 1);
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}`;
+}
 
 export default function NoticePeriodCalculator() {
   const [startDate, setStartDate] = useState<string>("");
@@ -34,16 +49,14 @@ export default function NoticePeriodCalculator() {
   const [weekDay, setWeekDay] = useState<string>("");
   const [nextMonday, setNextMonday] = useState<string>("");
   const [googleCalendarDate, setGoogleCalendarDate] = useState<string>("");
-  const [userQuestion, setUserQuestion] = useState<string>("");
-  const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
-
-  const [calendarOpen, setCalendarOpen] = useState<boolean>(false);
-  const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
+  // const [userQuestion, setUserQuestion] = useState<string>("");
+  // const [dropDownUserQuestion, setDropDownUserQuestion] = useState<string>("");
+  // const [isAIModalOpen, setIsAIModalOpen] = useState<boolean>(false);
 
   const calculateEndDate = () => {
     if (!startDate || !noticeDays || isNaN(Number(noticeDays))) return;
-    const start = new Date(startDate);
-    start.setDate(start.getDate() + parseInt(noticeDays));
+    const start = lastWorkingDayDate(startDate, noticeDays);
+    if (!start) return;
     const day = start.getDate();
     const suffix =
       day % 10 === 1 && day !== 11
@@ -70,8 +83,10 @@ export default function NoticePeriodCalculator() {
       })
     );
 
-    const googleFormatted = start.toISOString().split("T")[0].replace(/-/g, "");
-    setGoogleCalendarDate(googleFormatted);
+    const y = start.getFullYear();
+    const m = String(start.getMonth() + 1).padStart(2, "0");
+    const dNum = String(start.getDate()).padStart(2, "0");
+    setGoogleCalendarDate(`${y}${m}${dNum}`);
   };
 
   const resetCalculator = () => {
@@ -80,6 +95,7 @@ export default function NoticePeriodCalculator() {
     setEndDate("");
     setWeekDay("");
     setNextMonday("");
+    setGoogleCalendarDate("");
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -97,38 +113,11 @@ export default function NoticePeriodCalculator() {
           NOTICE PERIOD CALCULATOR
         </CalculatorHeading>
         <Label className="block text-sm font-medium mb-2">Start Date</Label>
-        <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
-          <PopoverTrigger asChild>
-            <div className="relative w-full mb-4">
-              <Input
-                readOnly
-                value={startDate}
-                placeholder="Select a date"
-                onClick={() => setCalendarOpen(true)}
-                className="cursor-pointer pr-10"
-                onKeyDown={handleKeyPress}
-              />
-              <span className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                <CalendarIcon className="w-5 h-5 text-gray-500" />
-              </span>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0">
-            <Calendar
-              mode="single"
-              selected={startDate ? new Date(startDate) : undefined}
-              onSelect={(date) => {
-                if (date) {
-                  const localDate = new Date(
-                    date.getTime() - date.getTimezoneOffset() * 60000
-                  );
-                  setStartDate(localDate.toISOString().split("T")[0]);
-                }
-                setCalendarOpen(false);
-              }}
-            />
-          </PopoverContent>
-        </Popover>
+        <DatePickerInput
+          value={startDate}
+          onChange={setStartDate}
+          onInputKeyDown={handleKeyPress}
+        />
         <Label className="block text-sm font-medium mb-2">
           Notice Period (days)
         </Label>
@@ -210,22 +199,50 @@ export default function NoticePeriodCalculator() {
               <span className="font-semibold">{nextMonday}</span>
             </Label>
             {googleCalendarDate && (
-              <div className="flex justify-center mt-4">
+              <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  className="text-xs"
+                  onClick={() => {
+                    const lwd = lastWorkingDayDate(startDate, noticeDays);
+                    if (!lwd) return;
+                    const ics = buildIcsContent({
+                      title: "Last working day (notice ends)",
+                      startDate: lwd,
+                    });
+                    const fname = `last-working-day-${startDate}.ics`;
+                    downloadTextFile(fname, ics, "text/calendar;charset=utf-8");
+                  }}
+                >
+                  Add to calendar (.ics)
+                </Button>
                 <a
-                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Last+Working+Day&dates=${googleCalendarDate}/${googleCalendarDate}`}
+                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Last working day")}&dates=${googleCalendarDate}/${ymdNextDay(googleCalendarDate)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="bg-gray-100 text-black text-xs hover:bg-gray-200 cursor-pointer">
-                    Add to Google Calendar
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="bg-gray-100 text-xs text-black hover:bg-gray-200"
+                  >
+                    Open in Google Calendar
                   </Button>
                 </a>
               </div>
+            )}
+            {googleCalendarDate && (
+              <p className="mt-2 text-center text-[11px] text-muted-foreground">
+                .ics opens in Apple Calendar, Outlook, etc. without signing in. Google link opens
+                their site (sign-in only if you use Google Calendar).
+              </p>
             )}
           </CardContent>
         )}
       </Card>
 
+      {/* Get AI Insights
       {googleCalendarDate && (
         <>
           <AIModal
@@ -239,6 +256,7 @@ export default function NoticePeriodCalculator() {
           />
         </>
       )}
+      */}
     </div>
   );
 }

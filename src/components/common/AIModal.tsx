@@ -8,12 +8,15 @@ import { RiChatAiLine } from "react-icons/ri";
 
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogOverlay,
 } from "@/components/ui/dialog";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 import { CardContent } from "@/components/ui/card";
 
@@ -90,18 +93,34 @@ const AIModal = (props: any) => {
   }, [userQuestion]);
 
   return (
-    <Dialog open={isAIModalOpen} onOpenChange={setIsAIModalOpen}>
-      <DialogOverlay className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md transition-all duration-300" />
-      <DialogTrigger asChild>
-        <Button
-          className="cursor-pointer w-full mt-4 flex items-center text-center justify-center gap-2 
-  bg-gradient-to-r from-blue-500 via-blue-600 to-purple-500 text-white font-semibold py-4 px-4 rounded-lg 
-  shadow-md shadow-blue-400/40 transition-all duration-300 ease-in-out"
+    <>
+      <HoverCard openDelay={150} closeDelay={100}>
+        <HoverCardTrigger asChild>
+          <div className="mt-4 inline-flex w-full justify-center sm:justify-start">
+            <Button
+              type="button"
+              disabled
+              size="sm"
+              variant="secondary"
+              className="pointer-events-none h-8 gap-1.5 px-3 text-xs font-medium opacity-60"
+              aria-disabled
+            >
+              <BotIcon className="size-3.5 shrink-0" aria-hidden />
+              Get AI Insights
+            </Button>
+          </div>
+        </HoverCardTrigger>
+        <HoverCardContent
+          side="top"
+          align="center"
+          className="w-auto border px-2.5 py-1.5 text-xs"
         >
-          <BotIcon className="h-5 text-white" /> Get AI Insights
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="lg:max-w-3xl max-w-3xl w-full mx-auto p-6 rounded-lg shadow-2xl">
+          Coming soon
+        </HoverCardContent>
+      </HoverCard>
+
+      <Dialog open={isAIModalOpen} onOpenChange={setIsAIModalOpen}>
+        <DialogContent className="mx-auto w-full max-w-3xl rounded-lg p-6 shadow-2xl lg:max-w-3xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center">
             <RiChatAiLine className="mr-2" />
@@ -198,8 +217,9 @@ const AIModal = (props: any) => {
             </CardContent>
           )
         )}
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

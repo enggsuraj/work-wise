@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { formatINR, parseNum } from "@/lib/finance";
 
 import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+import { DatePickerInput } from "@/components/common/DatePickerInput";
 
 function addDays(isoDate: string, days: number): Date | null {
   if (!isoDate) return null;
@@ -48,14 +49,13 @@ export default function GardenLeavePlanner() {
         </p>
         <CardContent className="space-y-4 px-0">
           <div>
-            <Label className="mb-2 block w-full" htmlFor="gl-start">
-              Resignation / notice start date
+            <Label className="mb-2 block text-sm font-medium" htmlFor="gl-start">
+              Start Date
             </Label>
-            <Input
+            <DatePickerInput
               id="gl-start"
-              type="date"
               value={start}
-              onChange={(e) => setStart(e.target.value)}
+              onChange={setStart}
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

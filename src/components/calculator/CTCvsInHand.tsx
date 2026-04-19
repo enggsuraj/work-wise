@@ -8,11 +8,13 @@ import {
 } from "@/components/ui/table";
 import { Label } from "@/components/ui/label";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
 import { salaryData } from "@/constants";
 
 export default function CTCvsInHand() {
   return (
     <div className="w-full max-w-2xl mx-auto lg:p-4 sm:p-2">
+      <CalculatorHeading className="mb-4">CTC VS INHAND SALARY</CalculatorHeading>
       <Table className="border border-gray-200 rounded-lg shadow-md text-sm">
         <TableHeader className="bg-gray-200">
           <TableRow>

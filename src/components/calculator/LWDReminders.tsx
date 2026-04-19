@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { buildIcsContent, downloadTextFile } from "@/lib/ics";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function LWDReminders() {
   const [title, setTitle] = useState("Last working day — WorkWise");
   const [dateStr, setDateStr] = useState("");
@@ -24,7 +26,7 @@ export default function LWDReminders() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">LWD CALENDAR REMINDER</h1>
+        <CalculatorHeading className="mb-2">LWD CALENDAR REMINDER</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Download an .ics file and open it in Google Calendar, Outlook, or Apple Calendar. No data
           leaves your device except the file you save.

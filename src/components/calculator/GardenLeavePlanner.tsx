@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 function addDays(isoDate: string, days: number): Date | null {
   if (!isoDate) return null;
   const d = new Date(`${isoDate}T12:00:00`);
@@ -38,7 +40,7 @@ export default function GardenLeavePlanner() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">GARDEN LEAVE / NOTICE OVERLAP</h1>
+        <CalculatorHeading className="mb-2">GARDEN LEAVE / NOTICE OVERLAP</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Last working day = resignation date + full notice calendar days. If you take paid leave
           during notice, many employers still pay for the whole notice window—confirm with HR. Rough

@@ -17,6 +17,8 @@ import {
 import { CITY_COST_INDEX } from "@/constants";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const cities = Object.keys(CITY_COST_INDEX).sort();
 
 export default function RelocationComparator() {
@@ -37,7 +39,7 @@ export default function RelocationComparator() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">RELOCATION &amp; COST OF LIVING</h1>
+        <CalculatorHeading className="mb-2">RELOCATION &amp; COST OF LIVING</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Simple index ratio between cities (Bengaluru = 100). For negotiation ballpark only.
         </p>

@@ -1,5 +1,7 @@
 "use client";
 
+/** Optional Google sign-in — kept for future use; calculators work without auth. */
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { signIn } from "next-auth/react";

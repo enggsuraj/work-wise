@@ -16,6 +16,8 @@ import {
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function FullAndFinalEstimator() {
   const [monthly, setMonthly] = useState("");
   const [daysLastMonth, setDaysLastMonth] = useState("");
@@ -52,7 +54,7 @@ export default function FullAndFinalEstimator() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">FULL &amp; FINAL (ROUGH ESTIMATE)</h1>
+        <CalculatorHeading className="mb-2">FULL &amp; FINAL (ROUGH ESTIMATE)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Not legal advice. Uses your divisor for per-day pay (common: 26 for earned leave, 30 for
           calendar).

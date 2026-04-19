@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 type YearRow = { year: number; fixed: number; variable: number; bonus: number; equity: number; total: number };
 
 export default function OfferDecoder() {
@@ -57,7 +59,7 @@ export default function OfferDecoder() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-3xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">OFFER DECODER</h1>
+        <CalculatorHeading className="mb-2">OFFER DECODER</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Linear vesting model. Variable pay applied evenly each year. Equity split evenly over vest
           years (cliff not modelled).

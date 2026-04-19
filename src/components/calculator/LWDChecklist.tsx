@@ -8,6 +8,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { LWD_CHECKLIST } from "@/constants";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function LWDChecklist() {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>(
     () => {
@@ -41,9 +43,9 @@ export default function LWDChecklist() {
   return (
     <main className="flex items-center justify-center bg-gray-100 p-2">
       <Card className="lg:p-4 sm:p-6 p-2 rounded-2xl shadow-lg max-w-3xl w-full">
-        <h1 className="text-sm font-bold text-center mb-4">
+        <CalculatorHeading>
           LAST WORKING DAY CHECKLIST
-        </h1>
+        </CalculatorHeading>
 
         <CardContent>
           {Object.entries(LWD_CHECKLIST).map(([category, items]) => (

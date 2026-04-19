@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import AIModal from "@/components/common/AIModal";
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
 
 import { daysArr, salaryHikeFrequentQuestions } from "@/constants";
 
@@ -119,9 +120,9 @@ export default function SalaryHikeCalculator() {
   return (
     <div className="flex w-full flex-col items-center">
       <Card className="w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-4 lg:p-8">
-        <h1 className="text-sm font-bold text-center mb-4">
+        <CalculatorHeading>
           SALARY HIKE CALCULATOR
-        </h1>
+        </CalculatorHeading>
 
         <Label className="block text-sm font-medium mb-2">Current Salary</Label>
         <Input

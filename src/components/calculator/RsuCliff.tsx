@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 type Row = { year: number; vestValue: number };
 
 export default function RsuCliff() {
@@ -34,7 +36,7 @@ export default function RsuCliff() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">RSU / EQUITY (CLIFF + VEST)</h1>
+        <CalculatorHeading className="mb-2">RSU / EQUITY (CLIFF + VEST)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Linear vest after cliff: no value before cliff ends, then equal annual value over vest
           years. Ignores tax at exercise/sale.

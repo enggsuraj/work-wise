@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function CareerExportPack() {
   const [name, setName] = useState("");
   const [lwd, setLwd] = useState("");
@@ -49,7 +51,7 @@ export default function CareerExportPack() {
   return (
     <main className="p-6 pt-0 print:p-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg print:shadow-none sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold print:hidden">CAREER SUMMARY EXPORT</h1>
+        <CalculatorHeading className="mb-2 print:hidden">CAREER SUMMARY EXPORT</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground print:hidden">
           Fill what you need, then copy Markdown or use your browser print dialog to save as PDF.
         </p>

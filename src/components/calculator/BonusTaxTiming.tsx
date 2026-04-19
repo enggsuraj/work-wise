@@ -17,6 +17,8 @@ import {
 import { marginalTaxOnBonus } from "@/lib/marginal-tax";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function BonusTaxTiming() {
   const [annualSalary, setAnnualSalary] = useState("");
   const [bonus, setBonus] = useState("");
@@ -34,7 +36,7 @@ export default function BonusTaxTiming() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">BONUS &amp; MARGINAL TAX</h1>
+        <CalculatorHeading className="mb-2">BONUS &amp; MARGINAL TAX</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Extra tax when annual bonus is added to the same FY salary (slab effect). Same total income
           over the year usually has the same annual tax; this shows the incremental burden on the

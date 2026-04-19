@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { summarizeOldRegime } from "@/lib/india-tax";
 import { futureValueMonthlyAnnuity, formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const NPS_80CCD1B_ANNUAL = 50_000;
 
 export default function NpsTaxBenefit() {
@@ -35,7 +37,7 @@ export default function NpsTaxBenefit() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">NPS — 80CCD(1B)</h1>
+        <CalculatorHeading className="mb-2">NPS — 80CCD(1B)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Additional ₹{NPS_80CCD1B_ANNUAL.toLocaleString("en-IN")}/yr under old regime (beyond 80C).
           Tax saving is illustrative; add Tier-I contribution accordingly.

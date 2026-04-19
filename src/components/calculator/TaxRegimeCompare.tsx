@@ -15,6 +15,8 @@ import {
 } from "@/lib/india-tax";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function TaxRegimeCompare() {
   const [gross, setGross] = useState("");
   const [extraDed, setExtraDed] = useState("150000");
@@ -31,7 +33,7 @@ export default function TaxRegimeCompare() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">OLD VS NEW REGIME (ILLUSTRATIVE)</h1>
+        <CalculatorHeading className="mb-2">OLD VS NEW REGIME (ILLUSTRATIVE)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Salary income only. Old regime: standard deduction ₹
           {STD_DED_OLD.toLocaleString("en-IN")} plus extra deductions (e.g. 80C). New regime:

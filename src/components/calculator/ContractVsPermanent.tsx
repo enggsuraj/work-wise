@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function ContractVsPermanent() {
   const [dailyRate, setDailyRate] = useState("");
   const [billableDays, setBillableDays] = useState("22");
@@ -29,7 +31,7 @@ export default function ContractVsPermanent() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">CONTRACT VS PERMANENT</h1>
+        <CalculatorHeading className="mb-2">CONTRACT VS PERMANENT</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Contract annual = daily rate × billable days × 12. &quot;Effective&quot; permanent cash ≈
           CTC × (1 − benefits%) — rough; employer costs are not take-home.

@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function EmploymentBond() {
   const [bondAmount, setBondAmount] = useState("");
   const [lockInMonths, setLockInMonths] = useState("24");
@@ -28,7 +30,7 @@ export default function EmploymentBond() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">EMPLOYMENT BOND (LINEAR MODEL)</h1>
+        <CalculatorHeading className="mb-2">EMPLOYMENT BOND (LINEAR MODEL)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Illustrative: penalty = bond × (1 − served ÷ lock-in). Real bonds follow your contract and
           Indian contract law — not legal advice.

@@ -1,5 +1,6 @@
 "use client";
 
+/** Wraps the app with next-auth SessionProvider; keep for future auth-gated features. */
 import { SessionProvider } from "next-auth/react";
 
 import { ThemeProvider } from "@/components/theme/ThemeProvider";

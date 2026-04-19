@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 
 import { futureValueMonthlyAnnuity, formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const WAGE_CEILING = 15_000;
 
 export default function PFEPFEstimator() {
@@ -46,7 +48,7 @@ export default function PFEPFEstimator() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">PF / EPF MATURITY (ILLUSTRATIVE)</h1>
+        <CalculatorHeading className="mb-2">PF / EPF MATURITY (ILLUSTRATIVE)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Annuity future value on monthly credits. Interest is compounded monthly. Verify with your
           EPFO passbook.

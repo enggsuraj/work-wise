@@ -1,3 +1,8 @@
+/**
+ * Auth.js (next-auth v5) — kept wired for future features (e.g. saved scenarios sync).
+ * Requires env: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, AUTH_SECRET or NEXTAUTH_SECRET.
+ * App remains usable without signing in; /login is optional.
+ */
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 

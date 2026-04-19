@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 /** Section 10(10) tax exemption ceiling (commonly cited; verify with current law). */
 const TAX_EXEMPT_GRATUITY_CAP = 20_00_000;
 
@@ -115,7 +117,7 @@ export default function GratuityCalculator() {
   return (
     <div className="flex w-full justify-center bg-gray-100 py-2 dark:bg-background sm:py-4">
       <Card className="w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-4 text-center text-sm font-bold">GRATUITY CALCULATOR</h1>
+        <CalculatorHeading>GRATUITY CALCULATOR</CalculatorHeading>
 
         <div className="mb-4 space-y-2 rounded-md border border-border bg-muted/40 p-3 text-left text-xs text-muted-foreground">
           <p>

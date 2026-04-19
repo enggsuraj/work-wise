@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function LeaveEncashmentCalculator() {
   const [basicSalary, setBasicSalary] = useState("");
   const [leaveDays, setLeaveDays] = useState("");
@@ -39,9 +41,9 @@ export default function LeaveEncashmentCalculator() {
   return (
     <main className="flex items-center justify-center p-6">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
-        <h1 className="text-sm font-bold text-center mb-2">
+        <CalculatorHeading className="mb-2">
           LEAVE ENCASHMENT CALCULATOR
-        </h1>
+        </CalculatorHeading>
         <div className="text-sm p-2 rounded-md mb-4 text-center bg-blue-50 text-blue-800">
           <p className="text-sm">
             (Basic Salary / 30) * No. of Unused Leave Days

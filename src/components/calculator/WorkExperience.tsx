@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function WorkExperienceCalculator() {
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
@@ -56,9 +58,9 @@ export default function WorkExperienceCalculator() {
   return (
     <main className="flex items-center justify-center bg-gray-100 p-6">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
-        <h1 className="text-sm font-bold text-center mb-4 text-gray-800">
+        <CalculatorHeading titleClassName="text-gray-800">
           WORK EXPERIENCE CALCULATOR
-        </h1>
+        </CalculatorHeading>
 
         <Label className="block text-sm font-medium mb-2 text-gray-700">
           Start Date

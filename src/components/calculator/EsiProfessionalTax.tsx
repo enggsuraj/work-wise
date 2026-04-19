@@ -21,6 +21,8 @@ import {
 } from "@/lib/regional-payroll";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const states = Object.keys(STATE_PT_MONTHLY_ROUGH).sort();
 
 export default function EsiProfessionalTax() {
@@ -41,7 +43,7 @@ export default function EsiProfessionalTax() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">ESI &amp; PROFESSIONAL TAX</h1>
+        <CalculatorHeading className="mb-2">ESI &amp; PROFESSIONAL TAX</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           ESI: employee 0.75% of gross if gross ≤ ₹
           {ESI_GROSS_CEILING.toLocaleString("en-IN")} (common ceiling; confirm current law). PT:

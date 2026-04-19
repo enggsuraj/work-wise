@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const KEY = "workwise-bookmarks-v1";
 
 export type Bookmark = {
@@ -82,7 +84,7 @@ export default function SavedScenarios() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">SAVED BOOKMARKS</h1>
+        <CalculatorHeading className="mb-2">SAVED BOOKMARKS</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Stores titles and full URLs on this device only. Open any tool, set inputs, then save the
           page here (query params are preserved for tools that support sharing).

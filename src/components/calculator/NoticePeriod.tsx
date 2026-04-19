@@ -24,6 +24,7 @@ import {
 import { daysArr, frequentQuestions } from "@/constants";
 
 import AIModal from "@/components/common/AIModal";
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
 import NoticePeriodHoverTimeline from "./NoticePeriodHoverTimeline";
 
 export default function NoticePeriodCalculator() {
@@ -92,9 +93,9 @@ export default function NoticePeriodCalculator() {
   return (
     <div className="flex w-full flex-col items-center pt-0">
       <Card className="w-full max-w-2xl rounded-2xl p-4 shadow-lg sm:p-4 lg:p-8">
-        <h1 className="text-sm font-bold text-center mb-4">
+        <CalculatorHeading>
           NOTICE PERIOD CALCULATOR
-        </h1>
+        </CalculatorHeading>
         <Label className="block text-sm font-medium mb-2">Start Date</Label>
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>

@@ -8,6 +8,8 @@ import {
   routes,
 } from "@/constants";
 
+import { ToolsPageTitle } from "./ToolsPageTitle";
+
 export const metadata: Metadata = {
   title: "All tools | WorkWise",
   description:
@@ -20,7 +22,7 @@ export default function ToolsDirectoryPage() {
   return (
     <div className="mx-auto min-h-[50vh] w-full max-w-4xl px-4 py-8 font-[family-name:var(--font-geist-sans)]">
       <header className="mb-10 text-center">
-        <h1 className="text-3xl font-bold text-foreground">All tools</h1>
+        <ToolsPageTitle />
         <p className="mt-2 text-muted-foreground">
           Jump to a category or open any calculator below.
         </p>

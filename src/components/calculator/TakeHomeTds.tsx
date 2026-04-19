@@ -18,6 +18,8 @@ import { useDebouncedUrlParams } from "@/hooks/useDebouncedUrlParams";
 import { summarizeNewRegime, summarizeOldRegime } from "@/lib/india-tax";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function TakeHomeTds() {
   const [monthlyGross, setMonthlyGross] = useState("");
   const [regime, setRegime] = useState<"new" | "old">("new");
@@ -70,7 +72,7 @@ export default function TakeHomeTds() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">TAKE-HOME &amp; TDS (ILLUSTRATIVE)</h1>
+        <CalculatorHeading className="mb-2">TAKE-HOME &amp; TDS (ILLUSTRATIVE)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Salary only; annual tax ÷ 12. PF/PT are inputs. Verify with payroll and Form 16.
         </p>

@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { useDebouncedUrlParams } from "@/hooks/useDebouncedUrlParams";
 import { parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function JobSwitchBreakeven() {
   const [oldInHand, setOldInHand] = useState("");
   const [newInHand, setNewInHand] = useState("");
@@ -55,7 +57,7 @@ export default function JobSwitchBreakeven() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">JOB SWITCH BREAK-EVEN</h1>
+        <CalculatorHeading className="mb-2">JOB SWITCH BREAK-EVEN</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Net upfront cost = notice buyout + relocation − signing bonus. Months to recover = net cost
           ÷ monthly in-hand gain.

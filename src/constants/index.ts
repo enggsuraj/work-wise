@@ -134,145 +134,190 @@ export const routes: AppRoute[] = [
     path: "/notice-period",
     label: "Notice Period",
     description:
-      "Calculate your last working day based on notice period",
+      "Enter the date your notice starts (often resignation date) and notice length in days. It computes your last working day, weekday, the following Monday, and a Google Calendar link—not legal advice.",
   },
   {
     path: "/salary-hike",
     label: "Salary Hike",
-    description: "Estimate your salary increase after appraisal",
+    description:
+      "Enter your current salary and the hike percentage. It shows your new salary and the amount in words for quick reading.",
   },
   {
     path: "/hike-percentage",
     label: "Hike Percentage",
-    description: "Calculate your salary hike percentage",
+    description:
+      "Enter your old and new salary (or amounts). It calculates the percentage increase between them.",
   },
   {
     path: "/work-experience",
     label: "Work Experience",
-    description: "Track your professional experience duration",
+    description:
+      "Enter job start and end dates. It shows total tenure in years, months, and days for résumés and forms.",
   },
   {
     path: "/lwd-checklist",
     label: "LWD Checklist",
-    description: "Complete checklist for your last working day",
+    description:
+      "A printable checklist of tasks and documents for your last working day: handover, assets, HR, and email—tick items as you go.",
   },
   {
     path: "/gratuity",
     label: "Gratuity Calculator",
-    description: "Calculate your gratuity amount",
+    description:
+      "Estimates gratuity using last drawn Basic + DA and service length (÷26 or ÷30), with optional fixed-term notes and a 50% of CTC wage floor. Outputs are illustrative; confirm with HR.",
   },
   {
     path: "/leave-encashment",
     label: "Leave Encashment",
-    description: "Calculate your leave encashment amount",
+    description:
+      "Estimates cash for unused leave from basic pay (or chosen base) and leave balance in days—rough figure only.",
   },
   {
     path: "/ctc-vs-inhand",
     label: "CTC vs InHand Salary",
-    description: "Compare CTC and in-hand salary",
+    description:
+      "Splits annual CTC into common components and approximates monthly in-hand after typical PF and deductions—illustrative, not your payslip.",
   },
   {
     path: "/pf-epf",
     label: "PF / EPF estimator",
     description:
-      "Project EPF corpus from monthly contributions and interest",
+      "Projects EPF corpus over time from monthly employee (and optional employer) contributions and a yearly interest assumption.",
   },
   {
     path: "/full-and-final",
     label: "Full & Final (FnF)",
-    description: "Rough settlement estimate: salary, leave, bonus, deductions",
+    description:
+      "Builds a rough full-and-final estimate: prorated salary, leave encashment, bonus, and deductions you enter—use as a planning aid only.",
   },
   {
     path: "/tax-regime-compare",
     label: "Old vs new tax regime",
-    description: "Compare India income tax under old and new regimes (illustrative)",
+    description:
+      "Compares India income tax under the old regime (with deductions you enter) vs the new regime on the same income—illustrative slabs.",
   },
   {
     path: "/relocation-comparison",
     label: "Relocation & CoL",
-    description: "Compare cities using cost-of-living style indices",
+    description:
+      "Compares cities using simple cost-of-living style indices so you can see equivalent salaries or budget differences between locations.",
   },
   {
     path: "/offer-decoder",
     label: "Offer decoder",
-    description: "Break down fixed, variable, bonus, and equity over time",
+    description:
+      "Breaks one offer into year-by-year totals: annual fixed, variable %, one-time signing bonus in a chosen year, and equity spread over vesting years (linear model).",
+  },
+  {
+    path: "/offer-compare",
+    label: "Offer comparison",
+    description:
+      "Places two or three offers side by side and compares year-one and four-year modelled totals using the same rules as the offer decoder.",
   },
   {
     path: "/notice-buyout",
     label: "Notice buyout",
-    description: "Estimate notice buyout cost from salary and days",
+    description:
+      "Estimates how much notice buyout might cost if you pay gross salary for the notice days you do not serve—rough cash planning only.",
   },
   {
     path: "/garden-leave",
     label: "Garden leave planner",
-    description: "Model notice period overlap with planned leave days",
+    description:
+      "Shows how planned leave days overlap with your notice window so you can see remaining working days in the notice period.",
   },
   {
     path: "/career-summary",
     label: "Career summary export",
-    description: "Compile numbers and print or copy a shareable summary",
+    description:
+      "Collects career numbers and notes in one place so you can print or copy a summary for records or conversations.",
   },
   {
     path: "/lwd-reminders",
     label: "LWD calendar (.ics)",
-    description: "Download a calendar reminder for your last working day",
+    description:
+      "Downloads an .ics calendar file for your last working day so you can add it to Google Calendar, Outlook, or Apple Calendar.",
   },
   {
     path: "/take-home-tds",
     label: "Take-home & TDS (monthly)",
-    description: "Rough monthly in-hand after PF, PT, and tax (illustrative)",
+    description:
+      "Approximates monthly in-hand after PF, professional tax, and rough TDS from your annual gross—use as a ballpark, not payroll.",
   },
   {
     path: "/hra-exemption",
     label: "HRA exemption",
-    description: "Estimate monthly exempt HRA under common rules (old regime style)",
+    description:
+      "Estimates exempt house rent allowance under common Section 10(13A) style rules (old-regime framing); enter rent, basic, metro flag.",
   },
   {
     path: "/bonus-tax-timing",
     label: "Bonus & marginal tax",
-    description: "Effective tax on annual bonus (same FY, slab effect)",
+    description:
+      "Shows how an annual bonus can push you into a higher slab in the same financial year for rough marginal tax intuition.",
   },
   {
     path: "/nps-tax-benefit",
     label: "NPS (80CCD) benefit",
-    description: "Illustrative tax saving and corpus from extra NPS contribution",
+    description:
+      "Illustrates possible tax saving and extra retirement corpus if you contribute more to NPS under Section 80CCD—simplified math.",
   },
   {
     path: "/esi-professional-tax",
     label: "ESI & professional tax",
-    description: "Rough ESI employee deduction and state-wise PT (illustrative)",
+    description:
+      "Rough employee ESI deduction if applicable and state professional tax from gross—many states and caps exist; illustrative only.",
   },
   {
     path: "/job-switch-breakeven",
     label: "Job switch break-even",
-    description: "Months to recover notice buyout and relocation from higher pay",
+    description:
+      "Estimates how many months of higher salary are needed to cover notice buyout and relocation costs you enter.",
   },
   {
     path: "/rsu-cliff",
     label: "RSU / equity cliff",
-    description: "Vesting schedule with cliff and annual value breakdown",
+    description:
+      "Models RSU or equity vesting with a cliff and annual tranches so you can see value per year after the cliff.",
   },
   {
     path: "/contract-vs-permanent",
     label: "Contract vs permanent",
-    description: "Compare contract rate to CTC with benefits assumption",
+    description:
+      "Compares a contract day-rate to a permanent CTC by annualising the contract and adding an assumed benefits load.",
   },
   {
     path: "/exit-documents-checklist",
     label: "Exit & relieving docs",
-    description: "Checklist for experience letter, FnF, PF, and verification",
+    description:
+      "A checklist for relieving letter, experience letter, full and final, PF transfer or withdrawal, and common background-verification items.",
   },
   {
     path: "/employment-bond",
     label: "Employment bond estimate",
-    description: "Linear training-bond cost if you leave early (illustrative)",
+    description:
+      "Rough linear estimate of training or bond cost if you leave before the bond period ends—does not replace legal review.",
   },
   {
     path: "/saved-scenarios",
     label: "Saved bookmarks",
-    description: "Save and reopen calculator links (local device only)",
+    description:
+      "Saves calculator URLs and labels in your browser’s local storage so you can reopen them on this device—nothing is sent to a server.",
   },
 ];
+
+/** Lookup tool metadata by pathname (no trailing slash). Includes /tools without duplicating it in `routes`. */
+export function getAppRouteByPath(pathname: string): AppRoute | undefined {
+  if (pathname === "/tools") {
+    return {
+      path: "/tools",
+      label: "All tools",
+      description:
+        "Directory of every calculator and checklist on WorkWise: jump by category, search by name, or open a tool from the cards below.",
+    };
+  }
+  return routes.find((r) => r.path === pathname);
+}
 
 /** High-level grouping for navigation and directory pages. */
 export type RouteCategoryId =
@@ -319,6 +364,7 @@ export const routeCategoryByPath: Record<string, RouteCategoryId> = {
   "/esi-professional-tax": "salary-tax",
   "/relocation-comparison": "offers-career",
   "/offer-decoder": "offers-career",
+  "/offer-compare": "offers-career",
   "/job-switch-breakeven": "offers-career",
   "/rsu-cliff": "offers-career",
   "/contract-vs-permanent": "offers-career",

@@ -9,6 +9,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 import { EXPERIENCE_RELIVING_CHECKLIST } from "@/constants";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 const STORAGE_KEY = "exitDocsChecklist";
 
 export default function ExitDocumentsChecklist() {
@@ -47,7 +49,7 @@ export default function ExitDocumentsChecklist() {
   return (
     <main className="flex items-center justify-center p-2">
       <Card className="w-full max-w-3xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-4">
-        <h1 className="mb-4 text-center text-sm font-bold">EXIT &amp; RELIEVING DOCUMENTS</h1>
+        <CalculatorHeading>EXIT &amp; RELIEVING DOCUMENTS</CalculatorHeading>
         <CardContent>
           {Object.entries(EXPERIENCE_RELIVING_CHECKLIST).map(([category, items]) => (
             <div key={category} className="mb-6">

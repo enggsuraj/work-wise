@@ -11,6 +11,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { hraExemptMonthly } from "@/lib/hra";
 import { formatINR, parseNum } from "@/lib/finance";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function HraExemptionCalc() {
   const [basic, setBasic] = useState("");
   const [da, setDa] = useState("0");
@@ -36,7 +38,7 @@ export default function HraExemptionCalc() {
   return (
     <main className="p-6 pt-0">
       <Card className="mx-auto w-full max-w-xl rounded-2xl p-4 shadow-lg sm:p-6 lg:p-8">
-        <h1 className="mb-2 text-center text-sm font-bold">HRA EXEMPTION (ILLUSTRATIVE)</h1>
+        <CalculatorHeading className="mb-2">HRA EXEMPTION (ILLUSTRATIVE)</CalculatorHeading>
         <p className="mb-4 text-center text-xs text-muted-foreground">
           Old-regime style: exempt = min(HRA received, rent − 10% of salary, 40% or 50% of salary).
           Salary = basic + DA.

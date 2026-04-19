@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
+import { CalculatorHeading } from "@/components/common/CalculatorHeading";
+
 export default function HikePercentageCalculator() {
   const [currentSalary, setCurrentSalary] = useState<string>("");
   const [hikedSalary, setHikedSalary] = useState<string>("");
@@ -41,9 +43,9 @@ export default function HikePercentageCalculator() {
   return (
     <main className="flex items-center justify-center bg-gray-100 p-6">
       <Card className="lg:p-8 sm:p-4 p-4 rounded-2xl shadow-lg max-w-2xl w-full">
-        <h1 className="text-sm font-bold text-center mb-4">
+        <CalculatorHeading>
           HIKE PERCENTAGE CALCULATOR
-        </h1>
+        </CalculatorHeading>
 
         <Label className="block text-sm font-medium mb-2">Current Salary</Label>
         <Input
